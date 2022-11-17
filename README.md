@@ -1,5 +1,5 @@
 # NOROFF Front End - August part-time
-### Christoffer Rørvik :vulcan_salute:
+### Christoffer :vulcan_salute:
 
 This is my repository on GitHub Classroom
 
