@@ -11,4 +11,4 @@ This is my repository on GitHub Classroom
 - [x] Answer the web security question in the p element with id web-security-answer
 - [x] Create folders called: ‘css’, ‘js’, and ‘images’. They can be empty folders for now (and if they are empty they won’t show on GitHub). We’ll add to them as we progress in the programme.
 - [x] Commit and push changes to your repository.
-- [ ] Deploy the site using Netlify.
+- [x] Deploy the site using Netlify.
