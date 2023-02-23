@@ -3,6 +3,8 @@
 
 This is my repository on GitHub Classroom
 
+### Course Assignment for HTML & CSS technology:construction_worker:
+
 ### Course Assignment for web and communications technology:construction_worker:
 - [x] Create a repository on GitHub Classroom
 - [x] Clone the repository to your computer and open in VS Code.
