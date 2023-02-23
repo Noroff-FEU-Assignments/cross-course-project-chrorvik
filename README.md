@@ -1,7 +1,7 @@
 # NOROFF Front End - August part-time
 ### Christoffer :vulcan_salute:
 
-This is my repository on GitHub Classroom
+This is my repository on GitHub Classroom. I use this as an to-do list when planing what to do in each module / course. I use old man :older_man: or woman :older_woman: emoji when finished with the course and the construction worker :construction_worker: at the task im working on.
 
 ### Course Assignment for HTML & CSS technology :construction_worker:
 - [x] Plan the HTML structure and CSS structure
