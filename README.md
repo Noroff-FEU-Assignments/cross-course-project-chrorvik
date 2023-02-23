@@ -3,7 +3,7 @@
 
 This is my repository on GitHub Classroom. I use this as a to-do list when planning what to do in each module/course. I use old man :older_man: or woman :older_woman: emojis when finished with the course and the construction worker :construction_worker:  at the task I'm working on. 
 
-The git structure is that I'm working with the branch "dev", and pushing any changes to that. The "main" is the one connected to Netlify and will be the stable branch.
+The git structure I'm using is that I'm working with the branch "dev", and pushing any changes to that. The "main" is the one connected to Netlify and will be the stable branch.
 
 ### Course Assignment for HTML & CSS technology :construction_worker:
 - [x] Plan the HTML structure and CSS structure
