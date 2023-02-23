@@ -1,2 +1,1 @@
-#Notes
-Use variables for css
+## See comments in the css file for more information

@@ -1,1 +1,3 @@
-Her kommer javascriptfiler
+## JavaScript files
+
+Has kept JavaScript to a minimum.
