@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/css/style.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <link rel="shortcut icon" href="/images/favicons/favicon.ico" type="image/x-icon">
-  <title>Rainydays | Home</title>
+  <title>Rainydays | Contact Us</title>
 </head>
 
 <body>
@@ -16,24 +14,13 @@
     <p>Free shipping from Norway, to the whole world.</p>
   </div>
   <nav>
-    <div class="mobile-menu">
-    <a href="#" class="hamburger-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </a>
-      <img src="/images/nav/logo-150x80-color-home.png" alt="">
-      <span class="material-symbols-outlined">
-        shopping_cart
-        </span>
-    </div>
     <ul class="menu">
       <div id="menu-text" class="menu-left">
-        <li><a href="/pages/404.html">News</a></li>
+        <li><a href="#">News</a></li>
         <li><a href="/pages/products.html">All items</a></li>
         <li><a href="/pages/women.html">Women</a></li>
-        <li><a href="/pages/404.html">Men</a></li>
-        <li><a href="/pages/404.html">Outlet</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Outlet</a></li>
       </div>
       <div class="logo">
         <li>
@@ -58,7 +45,7 @@
           </a>
         </li>
         <li>
-          <a href="#" id="shopping-cart">
+          <a href="#">
             <img src="/images/nav/empty-cart.png" alt="" />
           </a>
         </li>
@@ -70,59 +57,70 @@
       </div>
     </ul>
   </nav>
-  <div class="mobile-search">
-    <span class="material-symbols-outlined">
-      search
-      </span>
-      <input type="text" placeholder="Search..">
-  </div>
-  <div class="banner" id="banner-home">
+  <div class="banner" id="banner-contact">
     
     <div class="banner-text">
-      <h1>Our new rainclothing is here</h1>
-      <button>Go to collection</button>
+      <h1>Contact us</h1>
     </div>
-    <div class="banner-gradient"></div>
   </div>
   <main>
-  <h2 id="cta-header">Some of our favourites</h2>
-  <div class="cta-pictures">
-    <div class="cta-left">
-      <a class="cta-buttons" href="/pages/women.html"><button>Women</button></a>
-    </div>
-    <div class="cta-right">
-      <a class="cta-buttons" href="#">
-      <button>Men</button>
-      </a>
-    </div>
-  </div>
-  <div class="slider">
-    <div class="slider-container">
-      <img class="carousel-item carousel-item-1" src="/images/carousel/jacket01.png" alt="" />
-      <img class="carousel-item carousel-item-2" src="/images/carousel/jacket02.png" alt="" />
-      <img class="carousel-item carousel-item-3" src="/images/carousel/jacket03.png" alt="" />
-      <img class="carousel-item carousel-item-4" src="/images/carousel/jacket04.png" alt="" />
-      <img class="carousel-item carousel-item-5" src="/images/carousel/jacket05.png" alt="" />
-      <div class="slider-controls">
-      </div>
-    </div>
+  <h2 id="cta-header">Frequently asked questions (FAQ)</h2>
+  <p id="cta-p">Have you question regarding order, shipping, payment, return, warranty or repair? </p>
 
+    <ul class="faq-nav">
+      <li><a href="#">Order</a></li>
+      <li><a href="#">Shipping</a></li>
+      <li><a href="#">Payment</a></li>
+      <li><a href="#">Return and warrenty</a></li>
+      <li><a href="#">Repair</a></li>
+      <li><a href="#">Size guide</a></li>
+    </ul>
+    <hr id="hr-grey-large">
+    <h2 id="cta-header"> Contact form</h2>
+    <p id="cta-p">If you don’t find your answer in the FAQ, please contact us so we can help! </p>
+  <div class="form-container">
+  <form action="">
+    <label for="yname">Your name</label>
+    <input type="text" name="name" id="yname" placeholder="Bob Kjartan">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="bob.kjartan@example.com">
+    <label for="phone">Phone</label>
+    <input type="tel" name="phone" id="phone" placeholder="+47 987 65 432">
+    <label for="onr">Order number</label>
+    <input type="text" name="ordernumber" id="onr" placeholder="987654">
+    <label for="msg">Message</label>
+    <textarea type="text" name="message" id="msg" placeholder="Max 240 words"></textarea>
+    <br>
+    <button>Send</button>
+  </form>
   </div>
-  <div class="news-banner">
-    <h2>New <br> collection <br> comming soon</h2>
+  <div class="cta-container">
+    <div class="cta-contact cta-email">
+    <img src="/images/contact/Vector-3.svg" alt="">
+    <h3>Email</h3>
+    <a href="mailto:hei@rainydays.no">hei@rainydays.no</a>
+    <p>We respond within 24 hours</p>
   </div>
-  <div class="newsletter-sub">
-    <div class="newsletter-sub-text">
-      <h3>Do you want to know more about our new products?</h3>
-      <p>
-        Subscribe to our newsletter and stay updated on the latest products
-        and special deals!
-      </p>
-    </div>
-    <div class="newsletter-sub-signup">
-      <input type="email" placeholder="Email Address" name="mail" id="">
-      <button>Subscribe</button>
-    </div>
+  <div class="cta-contact cta-chat">
+    <img src="/images/contact/Vector-2.svg" alt="">
+    <h3>Chat</h3>
+    <p>Chat is open:</p>
+    <p>08:00-12:00</p>
+  </div>
+  <div class="cta-contact cta-tlf">
+    <img src="/images/contact/Vector-1.svg" alt="">
+    <h3>Phone</h3>
+    <p>Phone: <a href="tel:+47 123 45 678">+47 123 45 678</a></p>
+    <p>Monday to Friday</p>
+    <p>CET 08:00-16:00</p>
+  </div>
+  <div class="cta-contact cta-adr">
+    <img src="/images/contact/Vector.svg" alt="">
+    <h3>Address</h3>
+    <p>Rainydays AS</p>
+    <p>Langmyrvegen 83</p>
+    <p>N-6414 Molde</p>
+  </div>
   </div>
   </main>
   <footer>
@@ -172,6 +170,4 @@
   </div>
   </footer>
 </body>
-<script src="/js/carousel.js"></script>
-
 </html>
