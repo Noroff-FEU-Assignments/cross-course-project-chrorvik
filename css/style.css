@@ -992,11 +992,15 @@ form {
   .cta-pictures {
     height: 28rem;
   }
-  .slider {
-    height: 25rem;
-  }
   .carousel-item-5, .carousel-item-1 {
     opacity: 0.2;
+  }
+  .carousel-item-2, .carousel-item-4 {
+    opacity: 0.8;
+    width: 30%;
+  }
+  .carousel-item-3 {
+    width: 50%;
   }
   
 }
@@ -1006,5 +1010,8 @@ form {
     position: relative;
     top: 60%;
     right: 25%;
+  }
+  .slider {
+    height: 25rem;
   }
 }
