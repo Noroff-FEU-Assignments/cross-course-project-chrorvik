@@ -996,8 +996,9 @@ form {
     height: 25rem;
   }
   .carousel-item-5, .carousel-item-1 {
-    display: none;
+    opacity: 0.2;
   }
+  
 }
 
 @media (max-width: 570px) {
