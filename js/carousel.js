@@ -3,6 +3,8 @@ const sliderControlsContainer = document.querySelector('.slider-controls');
 const sliderControls = ['previous', 'next'];
 const carouselItems = document.querySelectorAll('.carousel-item');
 
+// Only the carousel in index.html
+
 class Carousel {
 
     constructor(container, items, controls) {
