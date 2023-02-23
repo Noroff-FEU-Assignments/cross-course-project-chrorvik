@@ -484,7 +484,7 @@ hr {
 
 /* Carousel / Slider of products */
 .slider {
-  height: 600px;
+  height: 37.5rem;
 }
 
 .slider-container {
@@ -556,6 +556,7 @@ hr {
   width: 55px;
   border-radius: 100%;
   padding: 0;
+  z-index: 2;
 }
 
 .slider-controls button:hover {
@@ -990,6 +991,12 @@ form {
 
   .cta-pictures {
     height: 28rem;
+  }
+  .slider {
+    height: 25rem;
+  }
+  .carousel-item-5, .carousel-item-1 {
+    display: none;
   }
 }
 
