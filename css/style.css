@@ -589,6 +589,12 @@ hr {
   left: 70%;
   font-size: 3rem;
 }
+.news-banner button {
+  position: relative;
+  display: none;
+  top: 35%;
+  left: 40%;
+}
 
 .newsletter-sub {
   display: flex;
@@ -1002,7 +1008,28 @@ form {
   .carousel-item-3 {
     width: 50%;
   }
-  
+
+  .news-banner {
+    background-image: url(/images/home/dun-family-mobile.png);
+    background-position: top;
+    background-size: cover;
+  }
+  .news-banner #news-banner-teaser {
+    display: none;
+  }
+  .news-banner button {
+    display: inline-block;
+  }
+  .news-banner h2 {
+    left: 60%;
+  }
+  .newsletter-sub {
+    display: none;
+  }
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 570px) {
