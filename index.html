@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Rainydays offers a wide range of high-quality rainwear and outdoor clothing for active men and women. From waterproof jackets to warm fleeces, we have everything you need to enjoy the outdoors in all types of weather conditions. Explore our collection today and get ready for adventure!">
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -17,13 +18,28 @@
     <p>Free shipping from Norway, to the whole world.</p>
   </div>
   <nav>
-    <div class="mobile-menu">
-      <a href="#" class="hamburger-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
-      <img src="/images/nav/logo-150x80-color-home.png" alt="">
+
+    <div class="mobile-top">
+      <div class="dropdown">
+        <input type="checkbox" id="checkbox_toggle">
+        <label for="checkbox_toggle" class="hamburger">
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+        </label>
+        <ul class="mobile-menu">
+          <li><a href="/pages/404.html">News</a></li>
+          <li><a href="/pages/404.html"><img alt="See your account" src="/images/nav/mobil-account.png">Your account</a></li>
+          <li><a href="/pages/products.html">All items</a></li>
+          <li><a href="/pages/404.html"><img alt="See favorites"src="/images/nav/mobil-fav.png">Favorites</a></li>
+          <li><a href="/pages/women.html">Women</a></li>
+          <li><a href="/pages/story.html">Story</a></li>
+          <li><a href="/pages/404.html">Men</a></li>
+          <li><a href="/pages/contact.html">Contact us</a></li>
+          <li><a href="/pages/404.html">Outlet</a></li>
+        </ul>
+      </div>
+      <img src="/images/nav/logo-150x80-color-home.png" alt="logo">
       <span class="material-symbols-outlined">
         shopping_cart
       </span>
@@ -50,22 +66,22 @@
       <div class="icons">
         <li>
           <a href="#">
-            <img src="/images/nav/search.png" alt="" />
+            <img src="/images/nav/search.png" alt="Search the webpage" />
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/images/nav/mypage.png" alt="" />
+            <img src="/images/nav/mypage.png" alt="See your account page" />
           </a>
         </li>
         <li>
           <a href="#" id="shopping-cart">
-            <img src="/images/nav/empty-cart.png" alt="" />
+            <img src="/images/nav/empty-cart.png" alt="See shopping cart" />
           </a>
         </li>
         <li>
           <a href="#">
-            <img src="/images/nav/fav.png" alt="" />
+            <img src="/images/nav/fav.png" alt="See favorites" />
           </a>
         </li>
       </div>
@@ -99,11 +115,11 @@
     </div>
     <div class="slider">
       <div class="slider-container">
-        <img class="carousel-item carousel-item-1" src="/images/carousel/jacket01.png" alt="" />
-        <img class="carousel-item carousel-item-2" src="/images/carousel/jacket02.png" alt="" />
-        <img class="carousel-item carousel-item-3" src="/images/carousel/jacket03.png" alt="" />
-        <img class="carousel-item carousel-item-4" src="/images/carousel/jacket04.png" alt="" />
-        <img class="carousel-item carousel-item-5" src="/images/carousel/jacket05.png" alt="" />
+        <img class="carousel-item carousel-item-1" src="/images/carousel/jacket01.png" alt="Oslo 3L anorak" />
+        <img class="carousel-item carousel-item-2" src="/images/carousel/jacket02.png" alt="Lette V2 3L jacket" />
+        <img class="carousel-item carousel-item-3" src="/images/carousel/jacket03.png" alt="Vatne 3L jacket" />
+        <img class="carousel-item carousel-item-4" src="/images/carousel/jacket04.png" alt="Oslo Urban jacket" />
+        <img class="carousel-item carousel-item-5" src="/images/carousel/jacket05.png" alt="Vatne 3L jacket" />
         <div class="slider-controls">
         </div>
       </div>
@@ -129,14 +145,14 @@
     </div>
   </main>
   <footer>
-    <div class="footer-top">
+    <div class="footer-desktop">
       <div class="footer-some">
         <img src="/images/footer/footer-logo-150x80-white.png" alt="" /><br>
         <div class="footer-some-icons">
-          <a href="#"><img src="/images/footer/facebook.png" alt=""></a>
-          <a href="#"><img src="/images/footer/Instagram.png" alt=""></a>
-          <a href="#"><img src="/images/footer/Youtube.png" alt=""></a>
-          <a href="#"><img src="/images/footer/Twitter.png" alt=""></a>
+          <a href="#"><img src="/images/footer/facebook.png" alt="Go to Facebook page"></a>
+          <a href="#"><img src="/images/footer/Instagram.png" alt="Go to Instagram"></a>
+          <a href="#"><img src="/images/footer/Youtube.png" alt="Go to Youtube"></a>
+          <a href="#"><img src="/images/footer/Twitter.png" alt="Go to Twitter"></a>
         </div>
       </div>
       <div class="footer-text">
@@ -169,9 +185,54 @@
         </div>
       </div>
     </div>
-    <hr>
+
+    <div class="footer-mobile">
+      <div class="footer-mobile-some">
+        <img src="/images/footer/footer-logo-150x80-white.png" alt="" /><br>
+        <div class="footer-mobile-some-icons">
+          <a href="#"><img src="/images/footer/mobile-facebook.png" alt="Go to Facebook></a>
+          <a href="#"><img src="/images/footer/mobile-Instagram.png" alt="Go to Instagram"></a>
+          <a href="#"><img src="/images/footer/mobile-Youtube.png" alt="Go to Youtube"></a>
+          <a href="#"><img src="/images/footer/mobile-Twitter.png" alt="Go to Twitter"></a>
+        </div>
+      </div>
+      <div class="footer-mobile-text">
+        <div class="footer-mobile-text-left">
+          <div class="footer-mobile-repairandcare">
+            <h3>Repair and care</h3>
+            <p><a href="#">Repair</a></p>
+            <p><a href="#">Warrenty</a></p>
+            <p><a href="#">Product care</a></p>
+          </div>
+          <div class="footer-mobile-legal">
+            <h3>Legal</h3>
+            <p><a href="#">Terms & conditions</a></p>
+            <p><a href="#">About cookies</a></p>
+            <p><a href="#">Privacy</a></p>
+          </div>
+        </div>
+        <div class="footer-mobile-resources">
+          <h3>Resources</h3>
+          <p><a href="#">FAQ</a></p>
+          <p><a href="#">Sitemap</a></p>
+          <p><a href="#">Size chart / guide</a></p>
+          <p><a href="#">Catalogue generator</a></p>
+          <p><a href="#">Press</a></p>
+          <p><a href="#">Discounts</a></p>
+        </div>
+      </div>
+      <div class="footer-mobile-contact">
+        <h3>Contact us</h3>
+        <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
+        <p>Phone: <a href="tel:+47 123 545 678">+47 123 545 678</a></p>
+        <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
+      </div>
+    </div>
+
+    <hr class="hr-desktop">
     <div class="footer-cpright">
-      <p>Rainydays AS <img src="/images/footer/c.png" alt=""> 2022-2023</p>
+      <p>Rainydays AS <img src="/images/footer/c.png" alt="Copyrights"> 2022-2023</p>
+    </div>
     </div>
   </footer>
 </body>
