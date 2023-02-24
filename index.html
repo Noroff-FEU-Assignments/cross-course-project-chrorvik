@@ -17,12 +17,27 @@
     <p>Free shipping from Norway, to the whole world.</p>
   </div>
   <nav>
-    <div class="mobile-menu">
-      <a href="#" class="hamburger-menu">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </a>
+
+    <div class="mobile-top">
+      <div class="dropdown">
+        <input type="checkbox" id="checkbox_toggle">
+        <label for="checkbox_toggle" class="hamburger">
+          <div class="line line-1"></div>
+          <div class="line line-2"></div>
+          <div class="line line-3"></div>
+        </label>
+        <ul class="mobile-menu">
+          <li><a href="#">News</a></li>
+          <li><a href="#"><img src="/images/nav/mobil-account.png">Your account</a></li>
+          <li><a href="#">All items</a></li>
+          <li><a href="#"><img src="/images/nav/mobil-fav.png">Favorites</a></li>
+          <li><a href="#">Women</a></li>
+          <li><a href="#">Story</a></li>
+          <li><a href="#">Men</a></li>
+          <li><a href="#">Contact us</a></li>
+          <li><a href="#">Outlet</a></li>
+        </ul>
+      </div>
       <img src="/images/nav/logo-150x80-color-home.png" alt="">
       <span class="material-symbols-outlined">
         shopping_cart
@@ -129,7 +144,7 @@
     </div>
   </main>
   <footer>
-    <div class="footer-top">
+    <div class="footer-desktop">
       <div class="footer-some">
         <img src="/images/footer/footer-logo-150x80-white.png" alt="" /><br>
         <div class="footer-some-icons">
@@ -169,9 +184,54 @@
         </div>
       </div>
     </div>
-    <hr>
+
+    <div class="footer-mobile">
+      <div class="footer-mobile-some">
+        <img src="/images/footer/footer-logo-150x80-white.png" alt="" /><br>
+        <div class="footer-mobile-some-icons">
+          <a href="#"><img src="/images/footer/mobile-facebook.png" alt=""></a>
+          <a href="#"><img src="/images/footer/mobile-Instagram.png" alt=""></a>
+          <a href="#"><img src="/images/footer/mobile-Youtube.png" alt=""></a>
+          <a href="#"><img src="/images/footer/mobile-Twitter.png" alt=""></a>
+        </div>
+      </div>
+      <div class="footer-mobile-text">
+        <div class="footer-mobile-text-left">
+          <div class="footer-mobile-repairandcare">
+            <h3>Repair and care</h3>
+            <p><a href="#">Repair</a></p>
+            <p><a href="#">Warrenty</a></p>
+            <p><a href="#">Product care</a></p>
+          </div>
+          <div class="footer-mobile-legal">
+            <h3>Legal</h3>
+            <p><a href="#">Terms & conditions</a></p>
+            <p><a href="#">About cookies</a></p>
+            <p><a href="#">Privacy</a></p>
+          </div>
+        </div>
+        <div class="footer-mobile-resources">
+          <h3>Resources</h3>
+          <p><a href="#">FAQ</a></p>
+          <p><a href="#">Sitemap</a></p>
+          <p><a href="#">Size chart / guide</a></p>
+          <p><a href="#">Catalogue generator</a></p>
+          <p><a href="#">Press</a></p>
+          <p><a href="#">Discounts</a></p>
+        </div>
+      </div>
+      <div class="footer-mobile-contact">
+        <h3>Contact us</h3>
+        <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
+        <p>Phone: <a href="tel:+47 123 545 678">+47 123 545 678</a></p>
+        <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
+      </div>
+    </div>
+
+    <hr class="hr-desktop">
     <div class="footer-cpright">
       <p>Rainydays AS <img src="/images/footer/c.png" alt=""> 2022-2023</p>
+    </div>
     </div>
   </footer>
 </body>

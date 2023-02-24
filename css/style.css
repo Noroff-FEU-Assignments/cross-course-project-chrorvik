@@ -109,15 +109,98 @@ nav {
   max-width: var(--default-width);
 }
 
+
 .mobile-menu {
+  max-height: 0px;
+  list-style: none;
+  transition: all 1s cubic-bezier(.325, 1, .22, 1);
+  top: 140px;
+  width: 100%;
+  background-color: white;
+  display: none;
+  position: absolute;
+  padding-top: 10px;
+  grid-template-columns: 1fr 1fr;
+  justify-items: start;
+  padding-left: 1.5rem;
+}
+
+.mobile-menu img {
+  width: 17px !important;
+  padding-right: 5px;
+}
+
+.mobile-menu li {
+  border-bottom: 0.18rem solid #fff;
+  color: var(--prim-color);
+  font-size: 1rem;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-menu li:last-of-type {
+  margin-bottom: 0.625rem;
+}
+
+input[type=checkbox] {
+  display: none;
+}
+
+
+input[type=checkbox]:checked~.mobile-menu {
+  display: grid;
+  height: auto;
+  max-height: 12rem;
+  transition: all 1s cubic-bezier(.5, 1, .22, 1);
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  height: 27px;
+  width: 27px;
+  cursor: pointer;
+  transition: all 1s cubic-bezier(.19, 1, .22, 1);
+}
+
+.line {
+  background-color: var(--prim-color);
+  width: 18px;
+  height: 0.15rem;
+  border-radius: 0.2rem;
+  transition: all 1s cubic-bezier(.19, 1, .22, 1);
+  margin-left: 1.5rem;
+}
+
+.material-symbols-outlined {
+  margin-right: 1.5rem;
+}
+
+input[type=checkbox]:checked~label .line-1 {
+  width: 22px;
+  transform: translateX(-11px) rotate(-45deg) translateY(12px);
+}
+
+input[type=checkbox]:checked~label .line-2 {
+  opacity: 0;
+}
+
+input[type=checkbox]:checked~label .line-3 {
+  width: 22px;
+  transform: translateX(-7px) rotate(45deg) translateY(-7px);
+}
+
+.mobile-top {
   width: var(--default-width);
   display: none;
   align-items: center;
   justify-content: space-between;
-  margin: 0 1.5rem 0 1.5rem;
 }
 
-.mobile-menu img {
+.mobile-top img {
   width: 7.5rem;
 }
 
@@ -138,21 +221,6 @@ nav {
 .mobile-search input {
   border: none;
   border-radius: 5px;
-}
-
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 21px;
-}
-
-.hamburger-menu .bar {
-  height: 3px;
-  width: 100%;
-  background-color: #0A3641;
-  border-radius: 10px;
 }
 
 .menu {
@@ -371,7 +439,7 @@ footer {
   background: var(--prim-color);
 }
 
-.footer-top {
+.footer-desktop {
   display: flex;
   padding: 50px 0 100px 0;
 }
@@ -433,6 +501,44 @@ hr {
   top: 3px;
 }
 
+.footer-mobile {
+  display: none;
+}
+
+.footer-mobile-some {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.footer-mobile-some-icons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 30px 0 50px 0;
+}
+
+.footer-mobile-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+
+.footer-mobile a {
+  line-height: 41px;
+}
+
+.footer-mobile-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-mobile-contact p {
+  text-align: center;
+}
 
 /* GLOBAL END */
 
@@ -589,6 +695,7 @@ hr {
   left: 70%;
   font-size: 3rem;
 }
+
 .news-banner button {
   position: relative;
   display: none;
@@ -955,15 +1062,11 @@ form {
     padding-bottom: 10px;
   }
 
-  .hamburger-menu {
-    display: flex;
-  }
-
   .menu {
     display: none;
   }
 
-  .mobile-menu {
+  .mobile-top {
     display: flex;
   }
 
@@ -998,13 +1101,18 @@ form {
   .cta-pictures {
     height: 28rem;
   }
-  .carousel-item-5, .carousel-item-1 {
+
+  .carousel-item-5,
+  .carousel-item-1 {
     opacity: 0.2;
   }
-  .carousel-item-2, .carousel-item-4 {
+
+  .carousel-item-2,
+  .carousel-item-4 {
     opacity: 0.8;
     width: 30%;
   }
+
   .carousel-item-3 {
     width: 50%;
   }
@@ -1014,21 +1122,42 @@ form {
     background-position: top;
     background-size: cover;
   }
+
   .news-banner #news-banner-teaser {
     display: none;
   }
+
   .news-banner button {
     display: inline-block;
   }
+
   .news-banner h2 {
-    left: 60%;
+    left: 40%;
   }
+
   .newsletter-sub {
     display: none;
   }
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
+
+  .footer-desktop {
+    display: none;
+  }
+
+  footer h3 {
+    line-height: 41px;
+  }
+
+  .hr-desktop {
+    display: none;
+  }
+
+  .footer-cpright p {
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  .footer-mobile {
+    display: block;
   }
 }
 
@@ -1038,6 +1167,7 @@ form {
     top: 60%;
     right: 25%;
   }
+
   .slider {
     height: 25rem;
   }
