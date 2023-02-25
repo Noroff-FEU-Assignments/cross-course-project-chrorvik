@@ -27,7 +27,8 @@ CSS STRUCTURE
 /* Variables */
 :root {
   --prim-color: #051e24;
-  --cta-color: #1997b6;
+  /* --cta-color: #1997b6; */
+  --cta-color: #348FA5;
   --prim-white: #f9faf8;
   --default-width: 1728px;
   /* 1728px used in Figma, 1920 on my laptop */
