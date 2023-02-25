@@ -113,6 +113,7 @@ button:active {
   box-shadow: 0 1px var(--prim-color);
   transform: translateY(4px);
 }
+
 img {
   max-width: 100%;
 }
@@ -369,6 +370,7 @@ input[type=checkbox]:checked~label .line-3 {
 .all-items h1 {
   color: var(--prim-color);
 }
+
 .card {
   display: inline-block;
   width: 516px;
@@ -824,8 +826,9 @@ hr {
   font-weight: 700;
   font-size: 1.4rem;
   line-height: 1.5rem;
-  margin: 3% 8% 3% 11% ;
-  letter-spacing: 0.08em;;
+  margin: 3% 8% 3% 11%;
+  letter-spacing: 0.08em;
+  ;
 }
 
 #header-content {
@@ -1073,13 +1076,14 @@ form {
   html {
     font-size: 14px;
   }
+
   /* STORY */
- .last-story {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  position: relative;
-  top: 1.5px;
-}
+  .last-story {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    position: relative;
+    top: 1.5px;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -1090,7 +1094,7 @@ form {
   .cta-pictures {
     height: 48.63rem;
   }
-  
+
 }
 
 @media (max-width: 1235px) {
@@ -1108,7 +1112,7 @@ form {
     grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
     grid-gap: 2em 4.5em;
   }
-  
+
   .card {
     height: 319px;
     width: 258px;
@@ -1116,17 +1120,19 @@ form {
     pointer-events: none;
   }
 
-.card button {
-  display: none;
-}
-.card:hover button {
-  display: none;
-}
+  .card button {
+    display: none;
+  }
+
+  .card:hover button {
+    display: none;
+  }
 
 }
 
 @media (max-width: 950px) {
- /* GLOBAL */
+
+  /* GLOBAL */
   nav {
     min-height: 0;
     margin-bottom: 5px;
@@ -1236,55 +1242,63 @@ form {
   }
 
   /* WOMEN*/
-.banner-text-wmn {
-  top: 80%;
-  left: 10%;;
-  z-index: 4;
-}
-#banner-women{
-  background-position: left;
-  height: 555px;
-  width: 100%
-}
-.banner-text-wmn p{
-  display: none;
-}
-.banner-text-wmn h1{
-  display: flex;
-  font-size: 4rem;
-  width: 120%;
-}
-.banner-text-wmn-mobile {
-  display: block;
-}
+  .banner-text-wmn {
+    top: 80%;
+    left: 10%;
+    ;
+    z-index: 4;
+  }
 
-/* Contact us */
-.header-contact-us {
-  display: flex;
-  flex-direction: column;
-}
-.form-container form {
-  grid-template: none;
-  justify-items: start;
-  justify-content: normal;
-  padding: 10px;
-  background-color: #D9D9D9;
-}
+  #banner-women {
+    background-position: left;
+    height: 555px;
+    width: 100%
+  }
 
-.form-container input, textarea {
-  background: #FFFF;
-  border-color: #0F4E5E;
-}
-.form-container button {
-  width: 100%;
-}
+  .banner-text-wmn p {
+    display: none;
+  }
 
-#banner-contact {
-  background-size: cover;
-  background-position: center;
-}
+  .banner-text-wmn h1 {
+    display: flex;
+    font-size: 4rem;
+    width: 120%;
+  }
 
-/*FOOTER*/
+  .banner-text-wmn-mobile {
+    display: block;
+  }
+
+  /* Contact us */
+  .header-contact-us {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-container form {
+    grid-template: none;
+    justify-items: start;
+    justify-content: normal;
+    padding: 10px;
+    background-color: #D9D9D9;
+  }
+
+  .form-container input,
+  textarea {
+    background: #FFFF;
+    border-color: #0F4E5E;
+  }
+
+  .form-container button {
+    width: 100%;
+  }
+
+  #banner-contact {
+    background-size: cover;
+    background-position: center;
+  }
+
+  /*FOOTER*/
 
 
   .footer-desktop {
@@ -1307,6 +1321,7 @@ form {
   .footer-mobile {
     display: block;
   }
+
   .not-found p {
     letter-spacing: .3em;
     text-align: center;
@@ -1326,12 +1341,14 @@ form {
   .slider {
     height: 25rem;
   }
-  .banner-text-wmn h1{
+
+  .banner-text-wmn h1 {
     font-size: 3rem;
     width: 100%;
     padding-left: 10%;
   }
+
   .banner-text-wmn {
-    left:0;
+    left: 0;
   }
 }
