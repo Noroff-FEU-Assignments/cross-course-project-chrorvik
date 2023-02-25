@@ -741,6 +741,8 @@ hr {
   height: 100px;
   color: var(--prim-color);
   font-weight: 700;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .newsletter-sub-text {
@@ -761,14 +763,13 @@ hr {
 }
 
 .newsletter-sub-signup {
-  display: flex;
-  justify-content: center;
-  width: 50%;
+  display: grid;
+  grid-template-columns: 370px 1fr;
+  margin-right: 2.5rem;
 }
 
 .newsletter-sub input {
   height: 3.75rem;
-  width: 70%;
   font-size: 1.5rem;
   line-height: 1.75rem;
   font-weight: 300;
