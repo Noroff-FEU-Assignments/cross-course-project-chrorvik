@@ -328,6 +328,7 @@ input[type=checkbox]:checked~label .line-3 {
   grid-template-columns: repeat(auto-fit, minmax(516px, 1fr));
   grid-gap: 5em;
   justify-items: center;
+  margin-bottom: 50px;
 }
 
 .card {
@@ -967,25 +968,14 @@ form {
   flex-direction: row-reverse;
 }
 
-/* Litt usikker på om jeg skal fjerne whitespace eller ikke */
-/* .last-story {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  position: relative;
-  top: 1.5px;
-} */
 .story-text {
-  width: 684px;
+  max-width: 684px;
   letter-spacing: 0.05em;
-  padding-top: 2.5rem;
+  padding: 0.5rem 2rem 0rem 2.5rem;
 }
 
 .story-text p {
   padding-top: 1rem;
-}
-
-.story-img img {
-  max-width: 765px;
 }
 
 /* STORY END*/
@@ -1044,6 +1034,13 @@ form {
   html {
     font-size: 14px;
   }
+  /* STORY */
+ .last-story {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  position: relative;
+  top: 1.5px;
+}
 }
 
 @media (max-width: 1400px) {
@@ -1054,6 +1051,7 @@ form {
   .cta-pictures {
     height: 48.63rem;
   }
+  
 }
 
 @media (max-width: 1235px) {
@@ -1085,6 +1083,7 @@ form {
 .card:hover button {
   display: none;
 }
+
 }
 
 @media (max-width: 950px) {
@@ -1211,7 +1210,6 @@ form {
 .header-contact-us {
   display: flex;
   flex-direction: column;
-
 }
 .form-container form {
   grid-template: none;
