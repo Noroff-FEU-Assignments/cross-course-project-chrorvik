@@ -1062,6 +1062,8 @@ form {
     height: 38rem;
   }
 
+  /* PRODUCTS*/
+
   .card-container {
     grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
     grid-gap: 2em 4.5em;
@@ -1071,7 +1073,15 @@ form {
     height: 319px;
     width: 258px;
     background-size: contain;
+    pointer-events: none;
   }
+
+.card button {
+  display: none;
+}
+.card:hover button {
+  display: none;
+}
 }
 
 @media (max-width: 950px) {
@@ -1194,11 +1204,7 @@ form {
   display: block;
 }
 
-/*
-516 = 258
-638 = 319
-*/
-
+/*FOOTER*/
 
 
   .footer-desktop {
@@ -1221,6 +1227,16 @@ form {
   .footer-mobile {
     display: block;
   }
+  .not-found p {
+    letter-spacing: .3em;
+    text-align: center;
+    width: 45%;
+  }
+
+  .not-found {
+    justify-content: space-around;
+  }
+
 }
 
 @media (max-width: 570px) {
