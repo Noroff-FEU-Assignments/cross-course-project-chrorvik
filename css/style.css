@@ -135,10 +135,9 @@ nav {
 }
 
 .mobile-menu li {
-  border-bottom: 0.18rem solid #fff;
   color: var(--prim-color);
   font-size: 1rem;
-  padding: 5px;
+  padding: 7px;
   display: flex;
   justify-content: center;
 }
@@ -155,8 +154,9 @@ input[type=checkbox] {
 input[type=checkbox]:checked~.mobile-menu {
   display: grid;
   height: auto;
-  max-height: 12rem;
+  max-height: 17rem;
   transition: all 1s cubic-bezier(.5, 1, .22, 1);
+  grid-gap: 1rem;
 }
 
 .hamburger {
@@ -235,7 +235,7 @@ input[type=checkbox]:checked~label .line-3 {
   text-transform: uppercase;
 }
 
-#menu-text li a {
+.menu-text li a {
   text-decoration: none;
   color: var(--prim-color);
   font-weight: bold;
@@ -245,7 +245,7 @@ input[type=checkbox]:checked~label .line-3 {
   transition: 0.5s;
 }
 
-#menu-text li a::after {
+.menu-text li a::after {
   position: absolute;
   content: "";
   top: 90%;
@@ -258,11 +258,11 @@ input[type=checkbox]:checked~label .line-3 {
   transition: transform 0.5s;
 }
 
-#menu-text li a:hover {
+.menu-text li a:hover {
   color: var(--cta-color);
 }
 
-#menu-text li a:hover::after {
+.menu-text li a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
