@@ -405,11 +405,11 @@ input[type=checkbox]:checked~label .line-3 {
   left: 37%;
 }
 
-.product-placeholder .product-btn{
+.product-placeholder .product-btn {
   display: none;
 }
 
-.product-placeholder:hover .product-btn{
+.product-placeholder:hover .product-btn {
   display: inline-block;
 }
 
@@ -744,7 +744,7 @@ hr {
   font-size: 3rem;
 }
 
-.news-banner button {
+.cta-buttons {
   position: relative;
   display: none;
   top: 35%;
@@ -1232,7 +1232,7 @@ form {
     display: none;
   }
 
-  .news-banner button {
+  .cta-buttons {
     display: inline-block;
   }
 
