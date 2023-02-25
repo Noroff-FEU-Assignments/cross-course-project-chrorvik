@@ -399,18 +399,21 @@ input[type=checkbox]:checked~label .line-3 {
   margin-left: 5px;
 }
 
-.card button {
+.product-btn {
   position: absolute;
   top: 50%;
   left: 37%;
+}
+
+.product-placeholder .product-btn{
   display: none;
 }
 
-.card:hover button {
+.product-placeholder:hover .product-btn{
   display: inline-block;
 }
 
-#product-placeholder {
+.product-placeholder {
   height: 100%;
 }
 
@@ -1120,11 +1123,11 @@ form {
     pointer-events: none;
   }
 
-  .card button {
+  .product-btn {
     display: none;
   }
 
-  .card:hover button {
+  .product-btn:hover {
     display: none;
   }
 
