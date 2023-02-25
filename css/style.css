@@ -1126,6 +1126,10 @@ form {
     left: 0;
   }
 
+  .cta-buttons {
+    font-size: 2rem;
+  }
+
   h1 {
     font-size: 2rem;
   }
