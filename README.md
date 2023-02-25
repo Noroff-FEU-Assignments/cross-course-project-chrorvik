@@ -7,13 +7,13 @@ The git structure I'm using is that I'm working with the branch "dev", and pushi
 
 ### Course Assignment for HTML & CSS technology :construction_worker:
 - [x] Plan the HTML structure and CSS structure
-- [ ] Make sure the HTML is semantic and neat
-- [ ] Follow DRY principle for CSS
-- [ ] Make sure HTML AND CSS are easy to read
-- [ ] Make the site reponsive
-- [ ] Use Grid, Flexbox and Variables
-- [ ] Make sure the site is WCAG / A11y compliant
-- [ ] Double check `<meta name="desciption">`, `<title>` and `<h1>`
+- [x] Make sure the HTML is semantic and neat
+- [x] Follow DRY principle for CSS
+- [x] Make sure HTML AND CSS are easy to read
+- [x] Make the site reponsive
+- [x] Use Grid, Flexbox and Variables
+- [x] Make sure the site is WCAG / A11y compliant
+- [x] Double check `<meta name="desciption">`, `<title>` and `<h1>`
 - [ ] Go through the "Marking Criteria" and make sure everything is done
 
 ### Course Assignment for web and communications technology :older_woman:
