@@ -76,6 +76,31 @@ button {
   border-style: solid;
 }
 
+.cta-buttons {
+  display: inline-block;
+  position: relative;
+  top: 45%;
+  left: 40%;
+  padding: 0.7rem 2rem;
+  background-color: var(--cta-color);
+  color: var(--prim-white);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cta-buttons:hover {
+  background: var(--prim-white);
+  color: var(--cta-color);
+  border-color: var(--prim-white);
+  cursor: pointer;
+}
+
+.cta-buttons:active {
+  box-shadow: 0 1px var(--prim-color);
+  transform: translateY(4px);
+}
+
 button:hover {
   background: var(--prim-white);
   color: var(--cta-color);
@@ -1087,9 +1112,18 @@ form {
 }
 
 @media (max-width: 950px) {
+ /* GLOBAL */
   nav {
     min-height: 0;
     margin-bottom: 5px;
+  }
+
+  .cta-buttons-home {
+    top: 100%;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    left: 0;
   }
 
   h1 {
@@ -1265,14 +1299,11 @@ form {
     justify-content: space-around;
   }
 
+
+
 }
 
 @media (max-width: 570px) {
-  .cta-buttons {
-    position: relative;
-    top: 60%;
-    right: 25%;
-  }
 
   .slider {
     height: 25rem;
