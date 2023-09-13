@@ -1,7 +1,7 @@
 
 # NOROFF Front End - August part-time
 
-## Christoffer :vulcan_salute:
+## Chris :vulcan_salute:
 
 This is my repository on GitHub Classroom. I use this as a to-do list when planning what to do in each module/course. I use old man :older_man: or woman :older_woman: emojis when finished with the course and the construction worker :construction_worker:  at the task I'm working on.
 
