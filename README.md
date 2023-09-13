@@ -14,7 +14,7 @@ The git structure I'm using is that I'm working with the branch "dev", and pushi
 - [x] Use Grid, Flexbox and Variables
 - [x] Make sure the site is WCAG / A11y compliant
 - [x] Double check `<meta name="desciption">`, `<title>` and `<h1>`
-- [ ] Go through the "Marking Criteria" and make sure everything is done
+- [x] Go through the "Marking Criteria" and make sure everything is done
 
 ### Course Assignment for web and communications technology :older_woman:
 - [x] Create a repository on GitHub Classroom
