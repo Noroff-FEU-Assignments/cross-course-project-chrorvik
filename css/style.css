@@ -374,7 +374,7 @@ input[type=checkbox]:checked~label .line-3 {
 .card {
   display: inline-block;
   width: 516px;
-  height: 638px;
+  height: 516px;
   position: relative;
 }
 
@@ -392,11 +392,17 @@ input[type=checkbox]:checked~label .line-3 {
   margin: 5px 0 2px 5px;
 }
 
-.card p {
+.price {
   color: #0F4E5E;
   font-size: 1.2rem;
   font-weight: 700;
   margin-left: 5px;
+}
+
+.card p {
+  font-size: 1.1rem;
+  margin-left: 5px;
+  padding: .2rem 0 .2rem 0;
 }
 
 .product-btn {
@@ -415,71 +421,11 @@ input[type=checkbox]:checked~label .line-3 {
 
 .product-placeholder {
   height: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.card-1 {
-  background-image: url('/images/products/img-01prod-1.png');
-}
-
-.card-1:hover {
-  background-image: url(/images/products/img-02prod-1.png);
-}
-
-.card-2 {
-  background-image: url('/images/products/img-01prod-2.png');
-}
-
-.card-2:hover {
-  background-image: url(/images/products/img-02prod-2.png);
-}
-
-.card-3 {
-  background-image: url('/images/products/img-01prod-3.png');
-}
-
-.card-3:hover {
-  background-image: url(/images/products/img-02prod-3.png);
-}
-
-.card-4 {
-  background-image: url('/images/products/img-01prod-4.png');
-}
-
-.card-4:hover {
-  background-image: url(/images/products/img-02prod-4.png);
-}
-
-.card-5 {
-  background-image: url('/images/products/img-01prod-5.png');
-}
-
-.card-5:hover {
-  background-image: url(/images/products/img-02prod-5.png);
-}
-
-.card-6 {
-  background-image: url('/images/products/img-01prod-6.png');
-}
-
-.card-6:hover {
-  background-image: url(/images/products/img-02prod-6.png);
-}
-
-.card-7 {
-  background-image: url('/images/products/img-01prod-7.png');
-}
-
-.card-7:hover {
-  background-image: url(/images/products/img-02prod-7.png);
-}
-
-.card-8 {
-  background-image: url('/images/products/img-01prod.png');
-}
-
-.card-8:hover {
-  background-image: url(/images/products/img-02prod.png);
-}
 
 /* FOOTER */
 footer {
@@ -1119,7 +1065,6 @@ form {
   .card {
     height: 319px;
     width: 258px;
-    background-size: contain;
     pointer-events: none;
   }
 
