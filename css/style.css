@@ -428,6 +428,11 @@ input[type="checkbox"]:checked ~ label .line-3 {
   margin-top: 5%;
 }
 
+.popup-content-left {
+  width: 100%;
+  margin-right: 5%;
+}
+
 .close {
   cursor: pointer;
   font-size: 2.5rem;
@@ -442,7 +447,7 @@ input[type="checkbox"]:checked ~ label .line-3 {
 }
 
 input[type="radio"] {
-  display: none;  /* Skjuler standard radio button */
+  display: none;
 }
 
 .size-label {
@@ -457,7 +462,14 @@ input[type="radio"]:checked + .size-label {
   color: var(--prim-white);
 }
 
+#popupSize {
+  margin-top: 5px;
+}
 
+#popupPrice {
+  font-size: 2rem;
+  font-weight: bold;
+}
 .product-btn {
   position: absolute;
   top: 50%;
