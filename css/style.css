@@ -79,9 +79,6 @@ button {
 
 .cta-buttons {
   display: inline-block;
-  position: relative;
-  top: 45%;
-  left: 40%;
   padding: 0.7rem 2rem;
   background-color: var(--cta-color);
   color: var(--prim-white);
@@ -425,15 +422,41 @@ input[type="checkbox"]:checked ~ label .line-3 {
 .popup-content-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   width: 70%;
   gap: 1.5rem;
+  margin-top: 5%;
 }
 
 .close {
   cursor: pointer;
   font-size: 2.5rem;
+  position: absolute;
+  left: 95%;
+  top: 0;
 }
+
+.size-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type="radio"] {
+  display: none;  /* Skjuler standard radio button */
+}
+
+.size-label {
+  border: 1px solid black;
+  padding: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked + .size-label {
+  background-color: var(--cta-color);
+  color: var(--prim-white);
+}
+
 
 .product-btn {
   position: absolute;

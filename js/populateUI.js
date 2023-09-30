@@ -31,11 +31,39 @@ export function generateProductCards(products) {
       document.getElementById("productPopup").style.display = "block";
 
       // Setter inn produktinfo i popupen
-      document.getElementById("popupTitle").innerText = product.title;
+      document.getElementById("popupTitle").innerText = `${subtitle}`;
       document.getElementById("popupImage").src = product.image;
+      document.getElementById("popupColor").innerText = product.baseColor;
       document.getElementById("popupDescription").innerText =
         product.description;
       document.getElementById("popupPrice").innerText = "$" + product.price;
+
+      const sizeContainer = document.getElementById("popupSize");
+      sizeContainer.innerHTML = ""; //Tømmer containeren
+      product.sizes.forEach(size => {
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.id = size;
+        radio.name = 'size';
+        radio.value = size;
+
+        const label = document.createElement('label');
+        label.htmlFor = size; 
+        label.className = 'size-label';
+        label.textContent = size;
+
+        sizeContainer.appendChild(radio);
+        sizeContainer.appendChild(label);
+      });
+
+      // Legger til klikkhendelse for å markere valgt størrelse
+      const sizeLabels = document.querySelectorAll('.size-label');
+      sizeLabels.forEach(label => {
+        label.addEventListener('click', function(e) {
+          sizeLabels.forEach(l => l.classList.remove('selected'));
+          e.currentTarget.classList.add('selected');
+        });
+      });
     });
 
     ul.appendChild(li);
@@ -45,3 +73,4 @@ export function generateProductCards(products) {
     document.getElementById("productPopup").style.display = "none";
   });
 }
+
