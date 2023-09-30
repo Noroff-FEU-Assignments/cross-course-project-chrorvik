@@ -34,6 +34,7 @@ export function generateProductCards(products) {
       document.getElementById("popupTitle").innerText = `${subtitle}`;
       document.getElementById("popupImage").src = product.image;
       document.getElementById("popupColor").innerText = product.baseColor;
+      document.getElementById("popupGender").innerText = product.gender;
       document.getElementById("popupDescription").innerText =
         product.description;
       document.getElementById("popupPrice").innerText = "$" + product.price;

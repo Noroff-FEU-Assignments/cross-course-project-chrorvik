@@ -429,6 +429,8 @@ input[type="checkbox"]:checked ~ label .line-3 {
 }
 
 .popup-content-left {
+  display: flex;
+  align-items: center;
   width: 100%;
   margin-right: 5%;
 }
