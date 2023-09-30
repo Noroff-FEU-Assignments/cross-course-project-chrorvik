@@ -79,6 +79,9 @@ button {
 
 .cta-buttons {
   display: inline-block;
+  position: relative;
+  top: 45%;
+  left: 40%;
   padding: 0.7rem 2rem;
   background-color: var(--cta-color);
   color: var(--prim-white);
@@ -434,6 +437,21 @@ input[type="checkbox"]:checked ~ label .line-3 {
   width: 100%;
   margin-right: 5%;
 }
+.tags {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+}
+
+.popup-cta-btn {
+  background-color: var(--cta-color);
+  color: var(--prim-white);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+
+}
 
 .close {
   cursor: pointer;
@@ -465,7 +483,7 @@ input[type="radio"]:checked + .size-label {
 }
 
 #popupSize {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 #popupPrice {

@@ -65,6 +65,8 @@ export function generateProductCards(products) {
           e.currentTarget.classList.add('selected');
         });
       });
+      const womenProducts = products.filter(product => product.gender === 'Male');
+      console.log(womenProducts)
     });
 
     ul.appendChild(li);
@@ -74,4 +76,3 @@ export function generateProductCards(products) {
     document.getElementById("productPopup").style.display = "none";
   });
 }
-
