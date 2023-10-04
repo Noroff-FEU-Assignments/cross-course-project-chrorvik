@@ -461,6 +461,38 @@ input[type="checkbox"]:checked ~ label .line-3 {
   top: 0;
 }
 
+.cart-dropdown-hidden {
+  display: none;
+}
+
+.cart-dropdown-visible {
+  display: block;
+  position: absolute;
+  padding: 10px;
+  top: 13%;
+  right: 7%;
+  width: 500px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  z-index: 99999;
+}
+#cart-header {
+  font-weight: bold;
+}
+
+#cart-footer {
+  text-align: right;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+#cart-items > li {
+  padding: 10px 0px 0px 0px;
+  display: flex;
+  gap: 10px;
+}
+
 .size-container {
   display: flex;
   align-items: center;
