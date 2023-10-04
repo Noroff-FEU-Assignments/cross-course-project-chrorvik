@@ -110,6 +110,7 @@
           <li>
             <a href="#" id="shopping-cart">
               <img src="/images/nav/empty-cart.png" alt="See shopping cart" />
+              <span id="cart-count" class="cart-count">0</span>
             </a>
           </li>
           <li>
@@ -127,6 +128,18 @@
         type="text"
         placeholder="Search.."
       />
+    </div>
+    <div id="cart-dropdown" class="cart-dropdown-hidden">
+      <div id="cart-header">
+        Cart Items (<span id="cart-item-count">0</span> items)
+      </div>
+      <ul id="cart-items">
+        <!--Placeholder-->
+      </ul>
+      <div id="cart-footer">
+        <div class="price">Total: $<span id="cart-total">0</span></div>
+        <button id="go-to-cart">Go to Shopping Cart</button>
+      </div>
     </div>
     <main>
       <!--Popup-->
