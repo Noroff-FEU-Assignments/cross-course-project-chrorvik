@@ -1,3 +1,5 @@
+import { getAddToCartHandler } from "./cart.js";
+let cart = [];
 export function generateProductCards(products) {
   const ul = document.querySelector(".card-container");
   ul.innerHTML = ""; // Tømmer listen hvis den allerede har elementer
@@ -56,6 +58,13 @@ export function generateProductCards(products) {
         sizeContainer.appendChild(radio);
         sizeContainer.appendChild(label);
       });
+      
+      const addToCartButton = document.querySelector('.popup-cta-btn');
+      addToCartButton.setAttribute('data-product-id', product.id);
+      addToCartButton.replaceWith(addToCartButton.cloneNode(true));
+      const updatedAddToCartButton = document.querySelector('.popup-cta-btn');
+      updatedAddToCartButton.addEventListener("click", getAddToCartHandler(product, cart));
+
 
       // Legger til klikkhendelse for å markere valgt størrelse
       const sizeLabels = document.querySelectorAll('.size-label');
