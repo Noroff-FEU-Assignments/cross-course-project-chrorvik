@@ -9,6 +9,12 @@ The git structure I'm using is that I'm working with the branch "dev", and pushi
 
 ## Course Assignment for JavaScript 1 :construction_worker:
 
+Comments: Really don't like the API's. 
+* Bad pictures
+* Only one gender
+* Pictures and colors don't match
+* Poor descriptions
+
 - [ ] Looking through the website and assess where API calls need to be made to dynamically add content.
 - [ ] Remove hardcoded products from the HTML
 - [ ] Fetch the products from API and dynamically add them to the page with links to the product details page. Here I need to use ID as a query string.
