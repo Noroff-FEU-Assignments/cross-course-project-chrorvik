@@ -486,11 +486,35 @@ input[type="checkbox"]:checked ~ label .line-3 {
   display: flex;
   flex-direction: column;
 }
-
+#cart-footer > button {
+  margin-top: 10px;
+}
 #cart-items > li {
   padding: 10px 0px 0px 0px;
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.cart-count {
+  position: relative;
+  bottom: 33px;
+  right: 22px;
+  background-color: var(--prim-color);
+  color: var(--prim-white);
+  padding: 2px 4px 2px 4px;
+  border-radius: 15%;
+  font-size: .8rem;
+}
+
+.continue-shopping {
+  position: fixed;
+  left: 10px;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.shopping-cart {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .size-container {

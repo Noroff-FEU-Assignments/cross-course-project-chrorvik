@@ -24,6 +24,7 @@ export function getAddToCartHandler(product, cart) {
             };
             cart.push(productToAdd);
             localStorage.setItem("cart", JSON.stringify(cart));
+            document.getElementById("cart-count").textContent = cart.length;
         } else {
         console.log("No size selected");
         }
@@ -70,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         function populateCartItems() {
             const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("cart-count").textContent = cart.length;
             console.log(cart);
             console.log("populateCartItems called");
             let itemsHTML = '';
@@ -81,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <li>
                 <img src="${item.image}" alt="${item.title}" width="60">
                 <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
-                <span class="price">${item.price} NOK</span>
+                <span class="price">$${item.price}</span>
                 </li>`;
             total += item.price;
             itemCount++;
@@ -90,11 +92,13 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("cart-item-count").textContent = itemCount;
             document.getElementById("cart-total").textContent = total;
             cartItems.innerHTML = itemsHTML;
+            document.getElementById("cart-count").textContent = itemCount;
         }
         
         document.getElementById("go-to-cart").addEventListener("click", function() {
-            window.location.href = "/cart";
+            window.location.href = "/pages/cart.html";
         });
         console.log(localStorage.getItem("cart"));
-  });
+    });
+      
   
