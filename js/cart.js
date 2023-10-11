@@ -54,10 +54,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const cartDropdown = document.getElementById("cart-dropdown");
         const cartItems = document.getElementById("cart-items");
         
+        if (cartIcon) {
         cartIcon.addEventListener("click", function(e) {
         e.preventDefault();
         toggleCartDropdown();
         });
+        }
   
         function toggleCartDropdown() {
         if (cartDropdown.classList.contains("cart-dropdown-hidden")) {
@@ -78,21 +80,36 @@ document.addEventListener("DOMContentLoaded", function() {
             let total = 0;
             let itemCount = 0;
         
-            cart.forEach(item => {
-            itemsHTML += `
-                <li>
-                <img src="${item.image}" alt="${item.title}" width="60">
-                <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
-                <span class="price">$${item.price}</span>
-                </li>`;
-            total += item.price;
-            itemCount++;
-            });
-        
+            let targetElement;
+            if(window.location.pathname.includes("cart.html")) {
+                targetElement = document.getElementsByClassName("shopping-cart")[0]
+                
+                cart.forEach(item => {
+                    targetElement.innerHTML += `
+                    <li>
+                    <img src="${item.image}" alt="${item.title}" width="60">
+                    <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
+                    <span class="price">$${item.price}</span>
+                    </li>`;
+                });
+            } else {
+                targetElement = document.getElementById("shopping-cart");
+                cart.forEach(item => {
+                itemsHTML += `
+                    <li>
+                    <img src="${item.image}" alt="${item.title}" width="60">
+                    <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
+                    <span class="price">$${item.price}</span>
+                    </li>`;
+                total += item.price;
+                itemCount++;
+                });
+            
             document.getElementById("cart-item-count").textContent = itemCount;
             document.getElementById("cart-total").textContent = total;
             cartItems.innerHTML = itemsHTML;
             document.getElementById("cart-count").textContent = itemCount;
+            }
         }
         
         document.getElementById("go-to-cart").addEventListener("click", function() {

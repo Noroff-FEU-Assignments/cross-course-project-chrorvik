@@ -466,11 +466,10 @@ input[type="checkbox"]:checked ~ label .line-3 {
 }
 
 .cart-dropdown-visible {
-  display: block;
-  position: absolute;
+  position: relative;
   padding: 10px;
   top: 13%;
-  right: 7%;
+  left: 71%;
   width: 500px;
   border: 1px solid #ccc;
   background-color: #fff;
