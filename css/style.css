@@ -466,12 +466,12 @@ input[type="checkbox"]:checked ~ label .line-3 {
 }
 
 .cart-dropdown-visible {
-  position: relative;
+  position: absolute;
   padding: 10px;
   top: 13%;
   left: 71%;
   width: 500px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--prim-color);
   background-color: #fff;
   z-index: 99999;
 }

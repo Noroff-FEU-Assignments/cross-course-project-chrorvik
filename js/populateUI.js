@@ -2,7 +2,7 @@ import { getAddToCartHandler } from "./cart.js";
 let cart = [];
 export function generateProductCards(products) {
   const ul = document.querySelector(".card-container");
-  ul.innerHTML = ""; // Tømmer listen hvis den allerede har elementer
+ if (ul !== null) { ul.innerHTML = ""; // Tømmer listen hvis den allerede har elementer
 
   products.forEach((product) => {
     const li = document.createElement("li");
@@ -84,4 +84,5 @@ export function generateProductCards(products) {
   document.querySelector(".close").addEventListener("click", function () {
     document.getElementById("productPopup").style.display = "none";
   });
+}
 }
