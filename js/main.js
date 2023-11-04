@@ -1,6 +1,7 @@
 import { fetchProducts } from "./apiClient.js";
-import { generateProductCards } from "./populateUI.js";
+import { generateProductCards } from "./cartUI.js";
 import { initializeCart} from "./cart.js";
+import "./domUtils.js";
 
 async function init() {
     const products = await fetchProducts();
