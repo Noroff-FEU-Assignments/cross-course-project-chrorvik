@@ -31,6 +31,7 @@ CSS STRUCTURE
   --cta-color: #1a5f70;
   --prim-white: #f9faf8;
   --default-width: 1728px;
+  --prim-grey: #D9D9D9;
   /* 1728px used in Figma, 1920 on my laptop */
 }
 
@@ -50,7 +51,7 @@ body {
   margin: 0 auto;
 }
 
-h1 {
+.header-text {
   text-transform: uppercase;
   color: var(--prim-white);
   font-size: 3rem;
@@ -90,7 +91,19 @@ button {
   font-weight: bold;
 }
 
-.cta-buttons:hover {
+.cta-buttons-index {
+  display: inline-block;
+  position: relative;
+  padding: 0.7rem 2rem;
+  background-color: var(--cta-color);
+  color: var(--prim-white);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+.cta-buttons:hover, .cta-buttons-index:hover {
   background: var(--prim-white);
   color: var(--cta-color);
   border-color: var(--prim-white);
@@ -176,7 +189,7 @@ input[type="checkbox"] {
   display: none;
 }
 
-input[type="checkbox"]:checked ~ .mobile-menu {
+input[type="checkbox"]:checked~.mobile-menu {
   display: grid;
   height: auto;
   max-height: 17rem;
@@ -208,16 +221,16 @@ input[type="checkbox"]:checked ~ .mobile-menu {
   margin-right: 1.5rem;
 }
 
-input[type="checkbox"]:checked ~ label .line-1 {
+input[type="checkbox"]:checked~label .line-1 {
   width: 22px;
   transform: translateX(-11px) rotate(-45deg) translateY(12px);
 }
 
-input[type="checkbox"]:checked ~ label .line-2 {
+input[type="checkbox"]:checked~label .line-2 {
   opacity: 0;
 }
 
-input[type="checkbox"]:checked ~ label .line-3 {
+input[type="checkbox"]:checked~label .line-3 {
   width: 22px;
   transform: translateX(-7px) rotate(45deg) translateY(-7px);
 }
@@ -318,6 +331,36 @@ input[type="checkbox"]:checked ~ label .line-3 {
   min-width: 15%;
 }
 
+.loading-bar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--cta-color);
+}
+
+#loading-indicator div {
+  animation: blink 0.5s linear;
+}
+
+#loading-indicator {
+  display: none;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  background-color: var(--prim-white);
+  padding: 2rem;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+@keyframes blink {
+  50% {
+    background-color: #ff3e3e;
+  }
+}
+
 /* HERO-BANNER (GLOBAL) */
 .banner {
   width: 100%;
@@ -399,8 +442,10 @@ input[type="checkbox"]:checked ~ label .line-3 {
   margin-left: 5px;
   padding: 0.2rem 0 0.2rem 0;
 }
+
 .popup {
-  display: none; /* Skjult som standard */
+  display: none;
+  /* Skjult som standard */
   position: fixed;
   top: 0;
   left: 0;
@@ -437,6 +482,7 @@ input[type="checkbox"]:checked ~ label .line-3 {
   width: 100%;
   margin-right: 5%;
 }
+
 .tags {
   display: flex;
   gap: 5rem;
@@ -461,23 +507,90 @@ input[type="checkbox"]:checked ~ label .line-3 {
   top: 0;
 }
 
+.close:hover {
+  color: var(--cta-color);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--prim-grey);
+}
+
+th, td {
+  padding: 8px;
+
+}
+
+th {
+  background-color: var(--prim-grey);
+  color: var(--prim-color);
+}
+
+tr:nth-child(even) {
+  background-color: white;
+}
+
+td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.product-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.toast-message {
+  position: fixed;
+  font-size: 1.5rem;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--prim-color);
+  color: var(--prim-white);
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 1000;
+  transition: opacity 0.5s, bottom 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toast-message.visible {
+  visibility: visible;
+  opacity: 1;
+  bottom: 30px;
+}
+
+.flex-container-cart-dropdown {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  max-width: var(--default-width);
+  width: 100%;
+}
+
 .cart-dropdown-hidden {
   display: none;
 }
 
 .cart-dropdown-visible {
-  display: block;
-  position: absolute;
+  position: relative;
   padding: 10px;
-  top: 13%;
-  right: 7%;
   width: 500px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--prim-color);
   background-color: #fff;
   z-index: 99999;
 }
+
 #cart-header {
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 
 #cart-footer {
@@ -486,14 +599,17 @@ input[type="checkbox"]:checked ~ label .line-3 {
   display: flex;
   flex-direction: column;
 }
-#cart-footer > button {
+
+#cart-footer>button {
   margin-top: 10px;
 }
-#cart-items > li {
+
+#cart-items>li {
   padding: 10px 0px 0px 0px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
+
 .cart-count {
   position: relative;
   bottom: 33px;
@@ -505,17 +621,61 @@ input[type="checkbox"]:checked ~ label .line-3 {
   font-size: .8rem;
 }
 
-.continue-shopping {
-  position: fixed;
-  left: 10px;
-  text-transform: uppercase;
-  text-decoration: underline;
+.cart-page-count {
+  position: relative;
+  bottom: 20px;
+  right: 3rem;
+  border-radius: 15%;
+  font-size: .8rem;
 }
 
-.shopping-cart {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+.cart-page-count:before {
+  content: "Total (";
 }
+
+.cart-page-count:after {
+  content: ")";
+}
+
+.continue-shopping {
+  text-transform: uppercase;
+  text-decoration: underline;
+  margin-top: .7rem;
+}
+
+.ul-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.shopping-cart-menu {
+  display: flex;
+  max-width: var(--default-width);
+  justify-content: space-between;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-item {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.product-image img {
+  width: 100px;
+}
+
+.product-details {
+  flex-grow: 1;
+  padding: 0 15px;
+}
+
 
 .size-container {
   display: flex;
@@ -533,7 +693,12 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-input[type="radio"]:checked + .size-label {
+.size-label:hover {
+  background-color: var(--cta-color);
+  color: var(--prim-white);
+}
+
+input[type="radio"]:checked+.size-label {
   background-color: var(--cta-color);
   color: var(--prim-white);
 }
@@ -546,6 +711,7 @@ input[type="radio"]:checked + .size-label {
   font-size: 2rem;
   font-weight: bold;
 }
+
 .product-btn {
   position: absolute;
   top: 50%;
@@ -1213,6 +1379,7 @@ form {
 }
 
 @media (max-width: 950px) {
+
   /* GLOBAL */
   nav {
     min-height: 0;
@@ -1231,7 +1398,7 @@ form {
     font-size: 2rem;
   }
 
-  h1 {
+  .header-text {
     font-size: 2rem;
   }
 

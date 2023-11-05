@@ -1,272 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Learn more about Rainydays and our passion for providing high-quality rainwear and outdoor clothing. Our mission is to equip people with the gear they need to embrace the outdoors, no matter the weather. Discover our story, our values, and our commitment to sustainability on our Story page.">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
-  <link rel="shortcut icon" href="/images/favicons/favicon.ico" type="image/x-icon">
-  <title>Rainydays | Story</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+      content="Learn more about Rainydays and our passion for providing high-quality rainwear and outdoor clothing. Our mission is to equip people with the gear they need to embrace the outdoors, no matter the weather. Discover our story, our values, and our commitment to sustainability on our Story page.">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
+    <link rel="shortcut icon" href="/images/favicons/favicon.ico"
+      type="image/x-icon">
+    <title>Rainydays | Story</title>
+  </head>
 
-<body>
-  <div class="top">
-    <p>Free shipping from Norway, to the whole world.</p>
-  </div>
-  <nav>
+  <body>
+    <div class="top">
+      <p>Free shipping from Norway, to the whole world.</p>
+    </div>
+    <nav>
 
-    <div class="mobile-top">
-      <div class="dropdown">
-        <input type="checkbox" id="checkbox_toggle">
-        <label title="Mobile hamburger menu" for="checkbox_toggle" class="hamburger" aria-haspopup="true"
-          aria-label="Open the menu">
-          <span class="line line-1"></span>
-          <span class="line line-2"></span>
-          <span class="line line-3"></span>
-        </label>
-        <ul class="mobile-menu">
+      <div class="mobile-top">
+        <div class="dropdown">
+          <input type="checkbox" id="checkbox_toggle">
+          <label title="Mobile hamburger menu" for="checkbox_toggle"
+            class="hamburger" aria-haspopup="true"
+            aria-label="Open the menu">
+            <span class="line line-1"></span>
+            <span class="line line-2"></span>
+            <span class="line line-3"></span>
+          </label>
+          <ul class="mobile-menu">
+            <li><a href="/">News</a></li>
+            <li><a href="/pages/404.html"><img alt="See your account"
+                  src="/images/nav/mobil-account.png">Your account</a>
+            </li>
+            <li><a href="/pages/products.html">All items</a></li>
+            <li><a href="/pages/404.html"><img alt="See favorites"
+                  src="/images/nav/mobil-fav.png">Favorites</a></li>
+            <li><a href="/pages/women.html">Women</a></li>
+            <li><a href="/pages/story.html">Story</a></li>
+            <li><a href="/pages/products.html">Men</a></li>
+            <li><a href="/pages/contact.html">Contact us</a></li>
+            <li><a href="/pages/404.html">Outlet</a></li>
+          </ul>
+        </div>
+        <a href="/">
+          <img src="/images/nav/logo-150x80-color-home.png" alt="Rainydays AS">
+        </a>
+        <span class="material-symbols-outlined">
+          shopping_cart
+        </span>
+      </div>
+      <div class="menu">
+        <ul class="menu-text menu-left">
           <li><a href="/">News</a></li>
-          <li><a href="/pages/404.html"><img alt="See your account" src="/images/nav/mobil-account.png">Your account</a>
-          </li>
           <li><a href="/pages/products.html">All items</a></li>
-          <li><a href="/pages/404.html"><img alt="See favorites" src="/images/nav/mobil-fav.png">Favorites</a></li>
           <li><a href="/pages/women.html">Women</a></li>
-          <li><a href="/pages/story.html">Story</a></li>
-          <li><a href="/pages/404.html">Men</a></li>
-          <li><a href="/pages/contact.html">Contact us</a></li>
+          <li><a href="/pages/products.html">Men</a></li>
           <li><a href="/pages/404.html">Outlet</a></li>
         </ul>
+        <ul class="logo">
+          <li>
+            <a href="/">
+              <img src="/images/nav/logo-150x80-color-home.png"
+                alt="Rainydays AS">
+            </a>
+          </li>
+        </ul>
+        <ul class="menu-text menu-right">
+          <li><a href="/pages/story.html">Story</a></li>
+          <li><a href="/pages/contact.html">Contact us</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="#">
+              <img src="/images/nav/search.png" alt="Search the webpage">
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="/images/nav/mypage.png" alt="See your account page">
+            </a>
+          </li>
+          <li>
+            <a href="#" id="shopping-cart">
+              <img src="/images/nav/empty-cart.png" alt="See shopping cart" />
+              <span id="cart-count" class="cart-count">0</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="/images/nav/fav.png" alt="See favorites">
+            </a>
+          </li>
+        </ul>
       </div>
-      <a href="/">
-        <img src="/images/nav/logo-150x80-color-home.png" alt="Rainydays AS">
-      </a>
+    </nav>
+    <div class="mobile-search">
       <span class="material-symbols-outlined">
-        shopping_cart
+        search
       </span>
+      <input title="Here you can search through the webpage" type="text"
+        placeholder="Search..">
     </div>
-    <div class="menu">
-      <ul class="menu-text menu-left">
-        <li><a href="/">News</a></li>
-        <li><a href="/pages/products.html">All items</a></li>
-        <li><a href="/pages/women.html">Women</a></li>
-        <li><a href="/pages/404.html">Men</a></li>
-        <li><a href="/pages/404.html">Outlet</a></li>
-      </ul>
-      <ul class="logo">
-        <li>
-          <a href="/">
-            <img src="/images/nav/logo-150x80-color-home.png" alt="Rainydays AS">
-          </a>
-        </li>
-      </ul>
-      <ul class="menu-text menu-right">
-        <li><a href="/pages/story.html">Story</a></li>
-        <li><a href="/pages/contact.html">Contact us</a></li>
-      </ul>
-      <ul class="icons">
-        <li>
-          <a href="#">
-            <img src="/images/nav/search.png" alt="Search the webpage">
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="/images/nav/mypage.png" alt="See your account page">
-          </a>
-        </li>
-        <li>
-          <a href="#" id="shopping-cart">
-            <img src="/images/nav/empty-cart.png" alt="See shopping cart">
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <img src="/images/nav/fav.png" alt="See favorites">
-          </a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="mobile-search">
-    <span class="material-symbols-outlined">
-      search
-    </span>
-    <input title="Here you can search through the webpage" type="text" placeholder="Search..">
-  </div>
-  <div class="banner" id="banner-story">
-
-    <div class="banner-text">
-      <h1>Our story</h1>
-    </div>
-    <div class="banner-gradient"></div>
-  </div>
-  <main>
-    <h2 class="cta-header">Here is how it all begain</h2>
-    <div class="story-norm">
-      <div class="story-text">
-        <h2>It all started as a hobby</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis
-          tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-          risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque
-          ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
-          Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
-        </p>
-        <p>
-          Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi.
-          Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum
-          vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit
-          amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus
-          lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis
-          nisi, ac posuere leo.</p>
-      </div>
-      <div class="story-img">
-        <img src="/images/story/story-1.png" alt="Women wearing rainclothing drinking coffe">
-      </div>
-    </div>
-    <div class="story-rev">
-      <div class="story-text">
-        <h2>Over 50 years of experience</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis
-          tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-          risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque
-          ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
-          Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
-        </p>
-        <p>
-          Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi.
-          Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum
-          vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit
-          amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus
-          lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis
-          nisi, ac posuere leo.</p>
-      </div>
-      <div class="story-img">
-        <img src="/images/story/story-2.png" alt="Couple hiking and wearing rainclothing">
-      </div>
-    </div>
-    <div class="story-norm last-story">
-      <div class="story-text">
-        <h2>Testing, sustainability and repair</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis
-          tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-          risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque
-          ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem.
-          Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
-        </p>
-        <p>
-          Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi.
-          Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu sem. Aenean feugiat ex eu vestibulum
-          vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu mauris a, blandit ultrices nibh. Mauris sit
-          amet magna non ligula vestibulum eleifend. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus
-          lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis
-          nisi, ac posuere leo.</p>
-      </div>
-      <div class="story-img last-story">
-        <img src="/images/story/story-3.png" alt="Group of friends wearing rainclothing and enjoy mountain view.">
-      </div>
-    </div>
-  </main>
-  <footer>
-    <div class="footer-desktop">
-      <div class="footer-some">
-        <img src="/images/footer/footer-logo-150x80-white.png" alt="Rainydays AS"><br>
-        <div class="footer-some-icons">
-          <a href="#"><img src="/images/footer/facebook.png" alt="Go to Facebook page"></a>
-          <a href="#"><img src="/images/footer/Instagram.png" alt="Go to Instagram"></a>
-          <a href="#"><img src="/images/footer/Youtube.png" alt="Go to Youtube"></a>
-          <a href="#"><img src="/images/footer/Twitter.png" alt="Go to Twitter"></a>
-        </div>
-      </div>
-      <div class="footer-text">
-        <div class="footer-contact">
-          <h3>Contact us</h3>
-          <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
-          <p>Phone: <a href="tel:0047123545678">+47 123 545 678</a></p>
-          <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
-        </div>
-        <div class="footer-legal">
-          <h3>Legal</h3>
-          <p><a href="#">Terms & conditions</a></p>
-          <p><a href="#">About cookies</a></p>
-          <p><a href="#">Privacy</a></p>
-        </div>
-        <div class="footer-repairandcare">
-          <h3>Repair and care</h3>
-          <p><a href="#">Repair</a></p>
-          <p><a href="#">Warrenty</a></p>
-          <p><a href="#">Product care</a></p>
-        </div>
-        <div class="footer-resources">
-          <h3>Resources</h3>
-          <p><a href="#">FAQ</a></p>
-          <p><a href="#">Sitemap</a></p>
-          <p><a href="#">Size chart / guide</a></p>
-          <p><a href="#">Catalogue generator</a></p>
-          <p><a href="#">Press</a></p>
-          <p><a href="#">Discounts</a></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-mobile">
-      <div class="footer-mobile-some">
-        <img src="/images/footer/footer-logo-150x80-white.png" alt="Rainydays AS"><br>
-        <div class="footer-mobile-some-icons">
-          <a href="#"><img src="/images/footer/mobile-facebook.png" alt="Go to Facebook"></a>
-          <a href="#"><img src="/images/footer/mobile-Instagram.png" alt="Go to Instagram"></a>
-          <a href="#"><img src="/images/footer/mobile-Youtube.png" alt="Go to Youtube"></a>
-          <a href="#"><img src="/images/footer/mobile-Twitter.png" alt="Go to Twitter"></a>
-        </div>
-      </div>
-      <div class="footer-mobile-text">
-        <div class="footer-mobile-text-left">
-          <div class="footer-mobile-repairandcare">
-            <h3>Repair and care</h3>
-            <p><a href="#">Repair</a></p>
-            <p><a href="#">Warrenty</a></p>
-            <p><a href="#">Product care</a></p>
+    <div class="flex-container-cart-dropdown">
+      <div id="cart-dropdown" class="cart-dropdown-hidden">
+        <div id="cart-header">
+          <div>
+            Cart Items (<span id="cart-item-count">0</span> items)
           </div>
-          <div class="footer-mobile-legal">
+          <div>
+            <a href="#"><span id="empty-cart">Empty cart</span></a>
+          </div>
+        </div>
+        <ul id="cart-items">
+          <!--Placeholder-->
+        </ul>
+        <div id="cart-footer">
+          <div class="price">Total: <span id="cart-total">0</span></div>
+          <button id="go-to-cart">Go to Shopping Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="banner" id="banner-story">
+
+      <div class="banner-text">
+        <h1 class="header-text">Our story</h1>
+      </div>
+      <div class="banner-gradient"></div>
+    </div>
+    <main>
+      <div id="loading-indicator">
+        <div class="loading-bar"></div>
+        Loading...
+      </div>
+      <h2 class="cta-header">Here is how it all begain</h2>
+      <div class="story-norm">
+        <div class="story-text">
+          <h2>It all started as a hobby</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            turpis molestie, dictum est a, mattis
+            tellus. Sed dignissim, metus nec fringilla accumsan, risus sem
+            sollicitudin lacus, ut interdum tellus elit sed
+            risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
+            Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Praesent auctor
+            purus luctus enim egestas, ac scelerisque
+            ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu
+            tempor urna. Curabitur vel bibendum lorem.
+            Morbi convallis convallis diam sit amet lacinia. Aliquam in
+            elementum tellus.
+          </p>
+          <p>
+            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
+            quam a convallis. Sed ut vulputate nisi.
+            Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu
+            sem. Aenean feugiat ex eu vestibulum
+            vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu
+            mauris a, blandit ultrices nibh. Mauris sit
+            amet magna non ligula vestibulum eleifend. Nulla varius volutpat
+            turpis sed lacinia. Nam eget mi in purus
+            lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper
+            quis venenatis nisi. Proin vitae facilisis
+            nisi, ac posuere leo.</p>
+        </div>
+        <div class="story-img">
+          <img src="/images/story/story-1.png"
+            alt="Women wearing rainclothing drinking coffe">
+        </div>
+      </div>
+      <div class="story-rev">
+        <div class="story-text">
+          <h2>Over 50 years of experience</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            turpis molestie, dictum est a, mattis
+            tellus. Sed dignissim, metus nec fringilla accumsan, risus sem
+            sollicitudin lacus, ut interdum tellus elit sed
+            risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
+            Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Praesent auctor
+            purus luctus enim egestas, ac scelerisque
+            ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu
+            tempor urna. Curabitur vel bibendum lorem.
+            Morbi convallis convallis diam sit amet lacinia. Aliquam in
+            elementum tellus.
+          </p>
+          <p>
+            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
+            quam a convallis. Sed ut vulputate nisi.
+            Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu
+            sem. Aenean feugiat ex eu vestibulum
+            vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu
+            mauris a, blandit ultrices nibh. Mauris sit
+            amet magna non ligula vestibulum eleifend. Nulla varius volutpat
+            turpis sed lacinia. Nam eget mi in purus
+            lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper
+            quis venenatis nisi. Proin vitae facilisis
+            nisi, ac posuere leo.</p>
+        </div>
+        <div class="story-img">
+          <img src="/images/story/story-2.png"
+            alt="Couple hiking and wearing rainclothing">
+        </div>
+      </div>
+      <div class="story-norm last-story">
+        <div class="story-text">
+          <h2>Testing, sustainability and repair</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            turpis molestie, dictum est a, mattis
+            tellus. Sed dignissim, metus nec fringilla accumsan, risus sem
+            sollicitudin lacus, ut interdum tellus elit sed
+            risus. Maecenas eget condimentum velit, sit amet feugiat lectus.
+            Class aptent taciti sociosqu ad litora
+            torquent per conubia nostra, per inceptos himenaeos. Praesent auctor
+            purus luctus enim egestas, ac scelerisque
+            ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu
+            tempor urna. Curabitur vel bibendum lorem.
+            Morbi convallis convallis diam sit amet lacinia. Aliquam in
+            elementum tellus.
+          </p>
+          <p>
+            Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque
+            quam a convallis. Sed ut vulputate nisi.
+            Integer in felis sed leo vestibulum venenatis. Suspendisse quis arcu
+            sem. Aenean feugiat ex eu vestibulum
+            vestibulum. Morbi a eleifend magna. Nam metus lacus, porttitor eu
+            mauris a, blandit ultrices nibh. Mauris sit
+            amet magna non ligula vestibulum eleifend. Nulla varius volutpat
+            turpis sed lacinia. Nam eget mi in purus
+            lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper
+            quis venenatis nisi. Proin vitae facilisis
+            nisi, ac posuere leo.</p>
+        </div>
+        <div class="story-img last-story">
+          <img src="/images/story/story-3.png"
+            alt="Group of friends wearing rainclothing and enjoy mountain view.">
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="footer-desktop">
+        <div class="footer-some">
+          <img src="/images/footer/footer-logo-150x80-white.png"
+            alt="Rainydays AS"><br>
+          <div class="footer-some-icons">
+            <a href="#"><img src="/images/footer/facebook.png"
+                alt="Go to Facebook page"></a>
+            <a href="#"><img src="/images/footer/Instagram.png"
+                alt="Go to Instagram"></a>
+            <a href="#"><img src="/images/footer/Youtube.png"
+                alt="Go to Youtube"></a>
+            <a href="#"><img src="/images/footer/Twitter.png"
+                alt="Go to Twitter"></a>
+          </div>
+        </div>
+        <div class="footer-text">
+          <div class="footer-contact">
+            <h3>Contact us</h3>
+            <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
+            <p>Phone: <a href="tel:0047123545678">+47 123 545 678</a></p>
+            <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
+          </div>
+          <div class="footer-legal">
             <h3>Legal</h3>
             <p><a href="#">Terms & conditions</a></p>
             <p><a href="#">About cookies</a></p>
             <p><a href="#">Privacy</a></p>
           </div>
-        </div>
-        <div class="footer-mobile-resources">
-          <h3>Resources</h3>
-          <p><a href="#">FAQ</a></p>
-          <p><a href="#">Sitemap</a></p>
-          <p><a href="#">Size chart / guide</a></p>
-          <p><a href="#">Catalogue generator</a></p>
-          <p><a href="#">Press</a></p>
-          <p><a href="#">Discounts</a></p>
+          <div class="footer-repairandcare">
+            <h3>Repair and care</h3>
+            <p><a href="#">Repair</a></p>
+            <p><a href="#">Warrenty</a></p>
+            <p><a href="#">Product care</a></p>
+          </div>
+          <div class="footer-resources">
+            <h3>Resources</h3>
+            <p><a href="#">FAQ</a></p>
+            <p><a href="#">Sitemap</a></p>
+            <p><a href="#">Size chart / guide</a></p>
+            <p><a href="#">Catalogue generator</a></p>
+            <p><a href="#">Press</a></p>
+            <p><a href="#">Discounts</a></p>
+          </div>
         </div>
       </div>
-      <div class="footer-mobile-contact">
-        <h3>Contact us</h3>
-        <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
-        <p>Phone: <a href="tel:0047123545678">+47 123 545 678</a></p>
-        <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
-      </div>
-    </div>
 
-    <hr class="hr-desktop">
-    <div class="footer-cpright">
-      <p>Rainydays AS <img src="/images/footer/c.png" alt="Copyrights"> 2022-2023</p>
-    </div>
-  </footer>
-</body>
+      <div class="footer-mobile">
+        <div class="footer-mobile-some">
+          <img src="/images/footer/footer-logo-150x80-white.png"
+            alt="Rainydays AS"><br>
+          <div class="footer-mobile-some-icons">
+            <a href="#"><img src="/images/footer/mobile-facebook.png"
+                alt="Go to Facebook"></a>
+            <a href="#"><img src="/images/footer/mobile-Instagram.png"
+                alt="Go to Instagram"></a>
+            <a href="#"><img src="/images/footer/mobile-Youtube.png"
+                alt="Go to Youtube"></a>
+            <a href="#"><img src="/images/footer/mobile-Twitter.png"
+                alt="Go to Twitter"></a>
+          </div>
+        </div>
+        <div class="footer-mobile-text">
+          <div class="footer-mobile-text-left">
+            <div class="footer-mobile-repairandcare">
+              <h3>Repair and care</h3>
+              <p><a href="#">Repair</a></p>
+              <p><a href="#">Warrenty</a></p>
+              <p><a href="#">Product care</a></p>
+            </div>
+            <div class="footer-mobile-legal">
+              <h3>Legal</h3>
+              <p><a href="#">Terms & conditions</a></p>
+              <p><a href="#">About cookies</a></p>
+              <p><a href="#">Privacy</a></p>
+            </div>
+          </div>
+          <div class="footer-mobile-resources">
+            <h3>Resources</h3>
+            <p><a href="#">FAQ</a></p>
+            <p><a href="#">Sitemap</a></p>
+            <p><a href="#">Size chart / guide</a></p>
+            <p><a href="#">Catalogue generator</a></p>
+            <p><a href="#">Press</a></p>
+            <p><a href="#">Discounts</a></p>
+          </div>
+        </div>
+        <div class="footer-mobile-contact">
+          <h3>Contact us</h3>
+          <p>Rainydays AS <br> Langmyrvegen 83 <br> N-6415 MOLDE</p> <br>
+          <p>Phone: <a href="tel:0047123545678">+47 123 545 678</a></p>
+          <p>Email: <a href="mailto:hei@rainydays.no">hei@rainydays.no</a></p>
+        </div>
+      </div>
+
+      <hr class="hr-desktop">
+      <div class="footer-cpright">
+        <p>Rainydays AS <img src="/images/footer/c.png" alt="Copyrights">
+          2022-2023</p>
+      </div>
+    </footer>
+    <script type="module" src="../js/main.js"></script>
+  </body>
 
 </html>
