@@ -1,41 +1,44 @@
-import { saveToLocalStorage, getFromLocalStorage } from "./storage.js";
-import { attachAddToCartClickListener } from "./eventListeners.js";
+import { saveToLocalStorage, getFromLocalStorage, getCart } from "./storage.js";
+import { setupEventListeners, showToast } from "./eventListeners.js";
+import { CART_STORAGE_KEY } from "./constants.js";
 
 console.log("script loaded");
 
+// Initialize the shopping cart
 export function initializeCart(products) {
-  let cart = getFromLocalStorage("cart") || [];
-
-  attachAddToCartClickListener(cart, products);
+  let cart = getFromLocalStorage(CART_STORAGE_KEY) || [];
+  setupEventListeners(cart, products);
 }
 
+// Handle adding a product to the cart
 export function getAddToCartHandler(product, cart) {
-  console.log("Button clicked");
+  console.log("More info clicked");
   return function () {
     const selectedRadio = document.querySelector('input[name="size"]:checked');
     if (selectedRadio) {
       const selectedSize = selectedRadio.value;
-      const productToAdd = {
-        title: product.title,
-        price: product.price,
-        color: product.baseColor,
-        size: selectedSize,
-        image: product.image,
-      };
-      cart.push(productToAdd);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      document.getElementById("cart-count").textContent = cart.length;
-    } else {
-      console.log("No size selected");
+      addProductToCart(product, selectedSize, cart);
     }
-    console.log(cart);
   };
 }
 
-document.addEventListener("click", function (event) {
-  if (event.target.id === "go-to-cart") {
-    const cart = localStorage.getItem("cart");
-    console.log(cart ? JSON.parse(cart) : "Cart is empty");
-    window.location.href = "/pages/cart.html";
-  }
-});
+// Helper function to add product to cart
+function addProductToCart(product, selectedSize) {
+  let cart = getCart();
+  const productToAdd = {
+    title: product.title,
+    price: product.price,
+    color: product.baseColor,
+    size: selectedSize,
+    image: product.image,
+  };
+  cart.push(productToAdd);
+  saveToLocalStorage(CART_STORAGE_KEY, cart);
+  updateCartCount(cart);
+  showToast('The product has been added to your cart! 🎉');
+}
+
+// Helper function to update cart count in UI
+function updateCartCount(cart) {
+  document.getElementById("cart-count").textContent = cart.length;
+}

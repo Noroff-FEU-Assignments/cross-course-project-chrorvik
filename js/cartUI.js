@@ -1,7 +1,20 @@
 import { getAddToCartHandler } from "./cart.js";
-import { getFromLocalStorage } from "./storage.js";
+import { getCart, getFromLocalStorage } from "./storage.js";
+import {handleCloseButtonClick, closeCartDropDown } from "./eventListeners.js";
 
-let cart = getFromLocalStorage("cart") || [];
+const cartItemsElement = document.getElementById("cart-items");
+const cartItemCountElement = document.getElementById("cart-item-count");
+const cartTotalElement = document.getElementById("cart-total");
+const cartCountElement = document.getElementById("cart-count");
+const cartDropdownElement = document.getElementById("cart-dropdown");
+
+function updateCartUI(itemCount, formattedTotal, itemsHTML) {
+  cartItemCountElement.textContent = itemCount;
+  cartTotalElement.textContent = formattedTotal;
+  cartCountElement.textContent = itemCount;
+  cartItemsElement.innerHTML = itemsHTML;
+}
+
 
 export function generateProductCards(products) {
   const ul = document.querySelector(".card-container");
@@ -34,6 +47,8 @@ export function generateProductCards(products) {
         `;
       // Legger til klikkhendelse på 'More info'-knappen
       li.querySelector(".product-btn").addEventListener("click", function () {
+        // Lukker dropdownmenyen
+        closeCartDropDown();
         // Åpner popupen
         document.getElementById("productPopup").style.display = "block";
 
@@ -65,13 +80,19 @@ export function generateProductCards(products) {
         });
 
         const addToCartButton = document.querySelector(".popup-cta-btn");
-        addToCartButton.setAttribute("data-product-id", product.id);
-        addToCartButton.replaceWith(addToCartButton.cloneNode(true));
-        const updatedAddToCartButton = document.querySelector(".popup-cta-btn");
-        updatedAddToCartButton.addEventListener(
-          "click",
-          getAddToCartHandler(product, cart)
-        );
+        const addCartButtonHandlers = new Map();
+
+        // Sjekk om det er en tidligere event listener og fjern den
+        if (addCartButtonHandlers.has(product.id)) {
+          addToCartButton.removeEventListener("click", addCartButtonHandlers.get(product.id));
+        }
+  
+        // Opprett en ny event listener og legg til den i map-en
+        const newHandler = getAddToCartHandler(product, getCart);
+        addCartButtonHandlers.set(product.id, newHandler);
+  
+        // Legg til den nye event listener til addToCartButton
+        addToCartButton.addEventListener("click", newHandler);
 
         // Legger til klikkhendelse for å markere valgt størrelse
         const sizeLabels = document.querySelectorAll(".size-label");
@@ -82,7 +103,7 @@ export function generateProductCards(products) {
           });
         });
         const womenProducts = products.filter(
-          (product) => product.gender === "Male"
+          (product) => product.gender === "Female"
         );
         console.log(womenProducts);
       });
@@ -90,171 +111,122 @@ export function generateProductCards(products) {
       ul.appendChild(li);
     });
     // Lukker popupen når brukeren klikker på 'close'-knappen
-    document.querySelector(".close").addEventListener("click", function () {
-      document.getElementById("productPopup").style.display = "none";
-    });
+    document.querySelector(".close").addEventListener("click", handleCloseButtonClick);
   }
-}
-
-function getCartData() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
+  
 }
 
 export function populateCartPage() {
-  const cart = getCartData();
-  const targetElement = document.getElementsByClassName("shopping-cart")[0];
+  const cart = getCart();
+  const targetElement = document.getElementsByClassName(
+    "shopping-cart-fullpage"
+  )[0];
   targetElement.innerHTML = "";
 
-  const headers = [
-    "Products",
-    "",
-    "Shipping date",
-    "Sizes and colors",
-    "Price",
-    "Amount",
-    "Total",
-  ];
-  headers.forEach((header) => {
-    const h2 = document.createElement("h2");
-    h2.innerText = header;
-    targetElement.appendChild(h2);
-  });
   cart.forEach((item) => {
     const productDiv = document.createElement("div");
-    productDiv.classList.add("product-item");
+    productDiv.classList.add("product-item", "flex-container");
 
-    const elements = [
-      item.title,
-      "",
-      "Not specified",
-      `Size: ${item.size}, Color: ${item.color}`,
-      `$${item.price}`,
-      "1",
-      `$${item.price}`,
-    ];
-    elements.forEach((el) => {
-      const div = document.createElement("div");
-      div.innerText = el;
-      productDiv.appendChild(div);
-    });
+    const imgDiv = document.createElement("div");
+    imgDiv.classList.add("product-image");
+    const img = document.createElement("img");
+    img.src = item.image;
+    img.alt = item.title;
+    imgDiv.appendChild(img);
+
+    const detailsDiv = document.createElement("div");
+    detailsDiv.classList.add("product-details");
+    const title = document.createElement("h3");
+    title.innerText = item.title;
+    const sizeColor = document.createElement("p");
+    sizeColor.innerText = `Size: ${item.size}, Color: ${item.color}`;
+    detailsDiv.appendChild(title);
+    detailsDiv.appendChild(sizeColor);
+
+    const priceDiv = document.createElement("div");
+    priceDiv.classList.add("product-price");
+    priceDiv.innerText = `$${item.price}`;
+
+    const quantityDiv = document.createElement("div");
+    quantityDiv.classList.add("product-quantity");
+
+    quantityDiv.innerText = item.quantity; // Assume quantity is part of your item objects
+
+    const totalDiv = document.createElement("div");
+    totalDiv.classList.add("product-total");
+    totalDiv.innerText = `$${item.price * item.quantity}`; // Total based on quantity
+
+    productDiv.appendChild(imgDiv);
+    productDiv.appendChild(detailsDiv);
+    productDiv.appendChild(priceDiv);
+    productDiv.appendChild(quantityDiv);
+    productDiv.appendChild(totalDiv);
 
     targetElement.appendChild(productDiv);
   });
 }
 
-export function populateDropdownCart() {
-  const cart = getCartData();
-  const targetElement = document.getElementById("cart-dropdown");
-  let itemsHTML = "";
-  let total = 0;
-
-  cart.forEach((item) => {
-    itemsHTML += `
-        <li>
-        <img src="${item.image}" alt="${item.title}" width="60">
-        <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
-        <span class="price">$${item.price}</span>
-        </li>`;
-    total += item.price;
-  });
-  let formattedTotal = parseFloat(total.toFixed(2));
-  document.getElementById("cart-item-count").textContent = cart.length;
-  document.getElementById("cart-total").textContent = formattedTotal;
-  targetElement.innerHTML = itemsHTML;
-}
-
-/* export function populateCartItems() {
-  if (window.location.pathname.includes("cart.html")) {
-    populateCartPage();
-  } else {
-    populateDropdownCart();
-  }
-} */
-
 export function toggleCartDropdown() {
-  const cartDropdown = document.getElementById("cart-dropdown");
-  if (cartDropdown.classList.contains("cart-dropdown-hidden")) {
+  if (cartDropdownElement.classList.contains("cart-dropdown-hidden")) {
+    cartDropdownElement.classList.remove("cart-dropdown-hidden");
+    cartDropdownElement.classList.add("cart-dropdown-visible");
     populateCartItems();
-    cartDropdown.classList.remove("cart-dropdown-hidden");
-    cartDropdown.classList.add("cart-dropdown-visible");
   } else {
-    cartDropdown.classList.remove("cart-dropdown-visible");
-    cartDropdown.classList.add("cart-dropdown-hidden");
+    cartDropdownElement.classList.remove("cart-dropdown-visible");
+    cartDropdownElement.classList.add("cart-dropdown-hidden");
   }
 }
 
 export function populateCartItems() {
   console.log("Entering populateCartItems");
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = getCart();
   console.log("Cart from localStorage: ", cart);
   document.getElementById("cart-count").textContent = cart.length;
+
   console.log(cart);
   console.log("populateCartItems called");
-  let itemsHTML = "";
-  let total = 0;
-  let itemCount = 0;
+  
+  let targetElement, itemsHTML;
+  let total = cart.reduce((acc, item) => acc + item.price, 0);
+  let itemCount = cart.length;
 
-  let targetElement;
+  let formattedTotal = `$${total.toFixed(2)}`;
+
   if (window.location.pathname.includes("cart.html")) {
-    console.log("Working with cart.html");
-    targetElement = document.getElementsByClassName("shopping-cart")[0];
+    targetElement = document.querySelector(".shopping-cart");
+    targetElement.innerHTML = createCartHeadersHTML();
 
-    targetElement.innerHTML = "";
-
-    const headers = [
-      "Products",
-      "",
-      "Shipping date",
-      "Sizes and colors",
-      "Price",
-      "Amount",
-      "Total",
-    ];
-    headers.forEach((header) => {
-      const h2 = document.createElement("h2");
-      h2.innerText = header;
-      targetElement.appendChild(h2);
-    });
-
-    cart.forEach((item) => {
-      const productDiv = document.createElement("div");
-      productDiv.classList.add("product-item");
-
-      const elements = [
-        item.title,
-        "",
-        "Not specified",
-        `Size: ${item.size}, Color: ${item.color}`,
-        `$${item.price}`,
-        "1",
-        `$${item.price}`,
-      ];
-      elements.forEach((el) => {
-        const div = document.createElement("div");
-        div.innerText = el;
-        productDiv.appendChild(div);
-      });
-
-      targetElement.appendChild(productDiv);
-    });
+    itemsHTML = cart.map(item => createCartItemHTML(item)).join('');
+    updateCartUI(itemCount, formattedTotal, itemsHTML)
   } else {
-    console.log("Working with dropdown cart");
-    targetElement = document.getElementById("shopping-cart");
-    cart.forEach((item) => {
-      itemsHTML += `
-                  <li>
-                  <img src="${item.image}" alt="${item.title}" width="60">
-                  <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
-                  <span class="price">$${item.price}</span>
-                  </li>`;
-      total += item.price;
-      itemCount++;
-    });
-    const cartItems = document.getElementById("cart-items");
-    let formattedTotal = parseFloat(total.toFixed(2));
-    document.getElementById("cart-item-count").textContent = itemCount;
-    document.getElementById("cart-total").textContent = formattedTotal;
-    cartItems.innerHTML = itemsHTML;
-    document.getElementById("cart-count").textContent = itemCount;
+    targetElement = cartItemsElement;
+    itemsHTML = cart.map(item => createDropdownItemHTML(item)).join('');
+    updateCartUI(itemCount, formattedTotal, itemsHTML)
   }
+}
+
+function createCartHeadersHTML() {
+  const headers = ["Products", "Shipping date", "Size and colors", "Price", "Amount", "Total"];
+  return headers.map(header => `<h2>${header}</h2>`).join('');
+}
+
+function createCartItemHTML(item) {
+  const elements = [item.title, "Not specified", `Size: ${item.size}, Color: ${item.color}`, `$${item.price}`, "1", `$${item.price}`];
+  return `<div class="product-item">${elements.map(el => `<div>${el}</div>`).join('')}</div>`;
+}
+
+function createDropdownItemHTML(item) {
+  return `
+    <li>
+      <img src="${item.image}" alt="${item.title}" width="60">
+      <p class="cart-item-title">${item.title}</p>
+      <p class="cart-item-size">Size: ${item.size}</p>
+      <p class="cart-item-color">Color: ${item.color}</p>
+      <span class="price">$${item.price}</span>
+    </li>`;
+}
+
+export function setupCartPage() {
+  generateProductCards(getFromLocalStorage("products"));
+  updateCartUI();
 }

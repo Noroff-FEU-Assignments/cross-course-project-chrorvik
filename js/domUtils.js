@@ -1,7 +1,8 @@
-import { toggleCartDropdown, populateCartItems } from "./cartUI.js";
+import { toggleCartDropdown, populateCartItems, populateCartPage } from "./cartUI.js";
 
 document.addEventListener("DOMContentLoaded", function() {
     populateCartItems();
+    populateCartPage();
     console.log("DOM fully loaded and parsed"); 
     const cartIcon = document.getElementById("shopping-cart");
     
