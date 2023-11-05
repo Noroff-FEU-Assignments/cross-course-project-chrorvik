@@ -9,7 +9,7 @@ The git structure I'm using is that I'm working with the branch "dev", and pushi
 
 ## Course Assignment for JavaScript 1 :construction_worker:
 
-- [ ] Ensure there is proper error handling (Unfortunately, I only managed to add some try catch blocks in apiClient and cart.js. Fortunately, I had already put something in storage.js.)
+- [ ] Ensure there is proper error handling (Unfortunately, I only managed to add some try catch blocks in apiClient and cart.js. Fortunately, I had already put some error handling in storage.js.)
 - [x] Looking through the website and assess where API calls need to be made to dynamically add content.
 - [x] Remove hardcoded products from the HTML
 - [x] Fetch the products from API and dynamically add them to the page with links to the product details page. Here I need to use ID as a query string.
