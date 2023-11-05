@@ -13,8 +13,11 @@ export function initializeCart(products) {
 
 export function getAddToCartHandler(product, cart) {
   return function () {
+    try {
     const selectedRadio = document.querySelector('input[name="size"]:checked');
-    if (selectedRadio) {
+    if (!selectedRadio) {
+      throw new Error("No size selected");
+      }
       const selectedSize = selectedRadio.value;
       const productToAdd = {
         title: product.title,
@@ -28,15 +31,22 @@ export function getAddToCartHandler(product, cart) {
       document.getElementById("cart-count").textContent = cart.length;
       showToast("The product has been added to your cart! 🎉");
       handleCloseButtonClick();
-    } else {
-      console.log("No size selected");
+    } catch (error) {
+      console.error(error);
     }
   };
 }
 
 document.addEventListener("click", function (event) {
-  if (event.target.id === "go-to-cart") {
-    const cart = localStorage.getItem("cart");
-    window.location.href = "/pages/cart.html";
+  try {
+    if (event.target.id === "go-to-cart") {
+      const cart = localStorage.getItem("cart");
+      if (!cart) {
+        throw new Error("No cart found");
+      }
+      window.location.href = "/pages/cart.html";
+    }
+  } catch (error) {
+    console.error(error);
   }
 });
