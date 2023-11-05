@@ -463,11 +463,12 @@ input[type="checkbox"]:checked ~ label .line-3 {
 
 .toast-message {
   position: fixed;
+  font-size: 1.5rem;
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
   background-color: var(--prim-color);
-  color: white;
+  color: var(--prim-white);
   padding: 10px 20px;
   border-radius: 5px;
   z-index: 1000;

@@ -9,5 +9,9 @@ export function getFromLocalStorage(key) {
 }
 
 export function getCart() {
-  return getFromLocalStorage(CART_STORAGE_KEY) || [];
+  const cart = getFromLocalStorage(CART_STORAGE_KEY);
+  if (cart === null || cart === undefined) {
+    return []; // Returnerer en tom array hvis handlekurven ikke finnes i localStorage
+  }
+  return cart;
 }

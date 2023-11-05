@@ -1,6 +1,6 @@
 import { getAddToCartHandler } from "./cart.js";
 import { getCart, getFromLocalStorage } from "./storage.js";
-import {handleCloseButtonClick, closeCartDropDown } from "./eventListeners.js";
+import { handleCloseButtonClick, closeCartDropDown } from "./eventListeners.js";
 
 const cartItemsElement = document.getElementById("cart-items");
 const cartItemCountElement = document.getElementById("cart-item-count");
@@ -14,7 +14,6 @@ function updateCartUI(itemCount, formattedTotal, itemsHTML) {
   cartCountElement.textContent = itemCount;
   cartItemsElement.innerHTML = itemsHTML;
 }
-
 
 export function generateProductCards(products) {
   const ul = document.querySelector(".card-container");
@@ -84,13 +83,16 @@ export function generateProductCards(products) {
 
         // Sjekk om det er en tidligere event listener og fjern den
         if (addCartButtonHandlers.has(product.id)) {
-          addToCartButton.removeEventListener("click", addCartButtonHandlers.get(product.id));
+          addToCartButton.removeEventListener(
+            "click",
+            addCartButtonHandlers.get(product.id)
+          );
         }
-  
+
         // Opprett en ny event listener og legg til den i map-en
         const newHandler = getAddToCartHandler(product, getCart);
         addCartButtonHandlers.set(product.id, newHandler);
-  
+
         // Legg til den nye event listener til addToCartButton
         addToCartButton.addEventListener("click", newHandler);
 
@@ -111,9 +113,10 @@ export function generateProductCards(products) {
       ul.appendChild(li);
     });
     // Lukker popupen når brukeren klikker på 'close'-knappen
-    document.querySelector(".close").addEventListener("click", handleCloseButtonClick);
+    document
+      .querySelector(".close")
+      .addEventListener("click", handleCloseButtonClick);
   }
-  
 }
 
 export function populateCartPage() {
@@ -150,7 +153,7 @@ export function populateCartPage() {
     const quantityDiv = document.createElement("div");
     quantityDiv.classList.add("product-quantity");
 
-    quantityDiv.innerText = item.quantity; // Assume quantity is part of your item objects
+    quantityDiv.innerText = item.quantity;
 
     const totalDiv = document.createElement("div");
     totalDiv.classList.add("product-total");
@@ -185,7 +188,7 @@ export function populateCartItems() {
 
   console.log(cart);
   console.log("populateCartItems called");
-  
+
   let targetElement, itemsHTML;
   let total = cart.reduce((acc, item) => acc + item.price, 0);
   let itemCount = cart.length;
@@ -196,23 +199,39 @@ export function populateCartItems() {
     targetElement = document.querySelector(".shopping-cart");
     targetElement.innerHTML = createCartHeadersHTML();
 
-    itemsHTML = cart.map(item => createCartItemHTML(item)).join('');
-    updateCartUI(itemCount, formattedTotal, itemsHTML)
+    itemsHTML = cart.map((item) => createCartItemHTML(item)).join("");
+    updateCartUI(itemCount, formattedTotal, itemsHTML);
   } else {
     targetElement = cartItemsElement;
-    itemsHTML = cart.map(item => createDropdownItemHTML(item)).join('');
-    updateCartUI(itemCount, formattedTotal, itemsHTML)
+    itemsHTML = cart.map((item) => createDropdownItemHTML(item)).join("");
+    updateCartUI(itemCount, formattedTotal, itemsHTML);
   }
 }
 
 function createCartHeadersHTML() {
-  const headers = ["Products", "Shipping date", "Size and colors", "Price", "Amount", "Total"];
-  return headers.map(header => `<h2>${header}</h2>`).join('');
+  const headers = [
+    "Products",
+    "Shipping date",
+    "Size and colors",
+    "Price",
+    "Amount",
+    "Total",
+  ];
+  return headers.map((header) => `<h2>${header}</h2>`).join("");
 }
 
 function createCartItemHTML(item) {
-  const elements = [item.title, "Not specified", `Size: ${item.size}, Color: ${item.color}`, `$${item.price}`, "1", `$${item.price}`];
-  return `<div class="product-item">${elements.map(el => `<div>${el}</div>`).join('')}</div>`;
+  const elements = [
+    item.title,
+    "Not specified",
+    `Size: ${item.size}, Color: ${item.color}`,
+    `$${item.price}`,
+    "1",
+    `$${item.price}`,
+  ];
+  return `<div class="product-item">${elements
+    .map((el) => `<div>${el}</div>`)
+    .join("")}</div>`;
 }
 
 function createDropdownItemHTML(item) {
