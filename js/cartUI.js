@@ -1,29 +1,18 @@
 import { getAddToCartHandler } from "./cart.js";
-import { getCart, getFromLocalStorage } from "./storage.js";
-import { handleCloseButtonClick, closeCartDropDown } from "./eventListeners.js";
+import { getFromLocalStorage } from "./storage.js";
+import { closeCartDropDown } from "./eventListeners.js";
 
-const cartItemsElement = document.getElementById("cart-items");
-const cartItemCountElement = document.getElementById("cart-item-count");
-const cartTotalElement = document.getElementById("cart-total");
-const cartCountElement = document.getElementById("cart-count");
-const cartDropdownElement = document.getElementById("cart-dropdown");
-
-function updateCartUI(itemCount, formattedTotal, itemsHTML) {
-  cartItemCountElement.textContent = itemCount;
-  cartTotalElement.textContent = formattedTotal;
-  cartCountElement.textContent = itemCount;
-  cartItemsElement.innerHTML = itemsHTML;
-}
+let cart = getFromLocalStorage("cart") || [];
 
 export function generateProductCards(products) {
   const ul = document.querySelector(".card-container");
   if (ul !== null) {
-    ul.innerHTML = ""; // Tømmer listen hvis den allerede har elementer
+    ul.innerHTML = "";
 
     products.forEach((product) => {
       const li = document.createElement("li");
 
-      // Splitte tittelen ved de to første mellomrommene
+      // Split the title at the first two spaces
 
       const [firstWord, secondWord, ...remainingWords] =
         product.title.split(" ");
@@ -44,14 +33,13 @@ export function generateProductCards(products) {
             <p class="price">$${product.price}</p>
             </a>
         `;
-      // Legger til klikkhendelse på 'More info'-knappen
-      li.querySelector(".product-btn").addEventListener("click", function () {
-        // Lukker dropdownmenyen
+      // Adds click event on 'More info' button
+      li.querySelector(".card").addEventListener("click", function () {
         closeCartDropDown();
-        // Åpner popupen
+        // Opens the popup
         document.getElementById("productPopup").style.display = "block";
 
-        // Setter inn produktinfo i popupen
+        // Inserts product info in the popup
         document.getElementById("popupTitle").innerText = `${subtitle}`;
         document.getElementById("popupImage").src = product.image;
         document.getElementById("popupColor").innerText = product.baseColor;
@@ -61,7 +49,7 @@ export function generateProductCards(products) {
         document.getElementById("popupPrice").innerText = "$" + product.price;
 
         const sizeContainer = document.getElementById("popupSize");
-        sizeContainer.innerHTML = ""; //Tømmer containeren
+        sizeContainer.innerHTML = "";
         product.sizes.forEach((size) => {
           const radio = document.createElement("input");
           radio.type = "radio";
@@ -79,24 +67,15 @@ export function generateProductCards(products) {
         });
 
         const addToCartButton = document.querySelector(".popup-cta-btn");
-        const addCartButtonHandlers = new Map();
+        addToCartButton.setAttribute("data-product-id", product.id);
+        addToCartButton.replaceWith(addToCartButton.cloneNode(true));
+        const updatedAddToCartButton = document.querySelector(".popup-cta-btn");
+        updatedAddToCartButton.addEventListener(
+          "click",
+          getAddToCartHandler(product, cart)
+        );
 
-        // Sjekk om det er en tidligere event listener og fjern den
-        if (addCartButtonHandlers.has(product.id)) {
-          addToCartButton.removeEventListener(
-            "click",
-            addCartButtonHandlers.get(product.id)
-          );
-        }
-
-        // Opprett en ny event listener og legg til den i map-en
-        const newHandler = getAddToCartHandler(product, getCart);
-        addCartButtonHandlers.set(product.id, newHandler);
-
-        // Legg til den nye event listener til addToCartButton
-        addToCartButton.addEventListener("click", newHandler);
-
-        // Legger til klikkhendelse for å markere valgt størrelse
+        // Adds click event to highlight selected size
         const sizeLabels = document.querySelectorAll(".size-label");
         sizeLabels.forEach((label) => {
           label.addEventListener("click", function (e) {
@@ -104,148 +83,110 @@ export function generateProductCards(products) {
             e.currentTarget.classList.add("selected");
           });
         });
-        const womenProducts = products.filter(
-          (product) => product.gender === "Female"
-        );
-        console.log(womenProducts);
       });
 
       ul.appendChild(li);
     });
-    // Lukker popupen når brukeren klikker på 'close'-knappen
-    document
-      .querySelector(".close")
-      .addEventListener("click", handleCloseButtonClick);
+    // Closes the popup when the user clicks the 'close' button
+    document.querySelector(".close").addEventListener("click", function () {
+      document.getElementById("productPopup").style.display = "none";
+    });
   }
 }
 
-export function populateCartPage() {
-  const cart = getCart();
-  const targetElement = document.getElementsByClassName(
-    "shopping-cart-fullpage"
-  )[0];
-  targetElement.innerHTML = "";
-
-  cart.forEach((item) => {
-    const productDiv = document.createElement("div");
-    productDiv.classList.add("product-item", "flex-container");
-
-    const imgDiv = document.createElement("div");
-    imgDiv.classList.add("product-image");
-    const img = document.createElement("img");
-    img.src = item.image;
-    img.alt = item.title;
-    imgDiv.appendChild(img);
-
-    const detailsDiv = document.createElement("div");
-    detailsDiv.classList.add("product-details");
-    const title = document.createElement("h3");
-    title.innerText = item.title;
-    const sizeColor = document.createElement("p");
-    sizeColor.innerText = `Size: ${item.size}, Color: ${item.color}`;
-    detailsDiv.appendChild(title);
-    detailsDiv.appendChild(sizeColor);
-
-    const priceDiv = document.createElement("div");
-    priceDiv.classList.add("product-price");
-    priceDiv.innerText = `$${item.price}`;
-
-    const quantityDiv = document.createElement("div");
-    quantityDiv.classList.add("product-quantity");
-
-    quantityDiv.innerText = item.quantity;
-
-    const totalDiv = document.createElement("div");
-    totalDiv.classList.add("product-total");
-    totalDiv.innerText = `$${item.price * item.quantity}`; // Total based on quantity
-
-    productDiv.appendChild(imgDiv);
-    productDiv.appendChild(detailsDiv);
-    productDiv.appendChild(priceDiv);
-    productDiv.appendChild(quantityDiv);
-    productDiv.appendChild(totalDiv);
-
-    targetElement.appendChild(productDiv);
-  });
-}
-
 export function toggleCartDropdown() {
-  if (cartDropdownElement.classList.contains("cart-dropdown-hidden")) {
-    cartDropdownElement.classList.remove("cart-dropdown-hidden");
-    cartDropdownElement.classList.add("cart-dropdown-visible");
+  const cartDropdown = document.getElementById("cart-dropdown");
+  if (cartDropdown.classList.contains("cart-dropdown-hidden")) {
     populateCartItems();
+    cartDropdown.classList.remove("cart-dropdown-hidden");
+    cartDropdown.classList.add("cart-dropdown-visible");
   } else {
-    cartDropdownElement.classList.remove("cart-dropdown-visible");
-    cartDropdownElement.classList.add("cart-dropdown-hidden");
+    cartDropdown.classList.remove("cart-dropdown-visible");
+    cartDropdown.classList.add("cart-dropdown-hidden");
   }
 }
 
 export function populateCartItems() {
-  console.log("Entering populateCartItems");
-  const cart = getCart();
-  console.log("Cart from localStorage: ", cart);
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
   document.getElementById("cart-count").textContent = cart.length;
+  let itemsHTML = "";
+  let total = 0;
+  let itemCount = 0;
 
-  console.log(cart);
-  console.log("populateCartItems called");
-
-  let targetElement, itemsHTML;
-  let total = cart.reduce((acc, item) => acc + item.price, 0);
-  let itemCount = cart.length;
-
-  let formattedTotal = `$${total.toFixed(2)}`;
-
+  let targetElement;
   if (window.location.pathname.includes("cart.html")) {
-    targetElement = document.querySelector(".shopping-cart");
-    targetElement.innerHTML = createCartHeadersHTML();
+    targetElement = document.getElementsByClassName("shopping-cart")[0];
+    targetElement.innerHTML = "";
 
-    itemsHTML = cart.map((item) => createCartItemHTML(item)).join("");
-    updateCartUI(itemCount, formattedTotal, itemsHTML);
+    const headers = [
+      "Product",
+      "",
+      "Shipping date",
+      "Sizes and colors",
+      "Price",
+      "Amount",
+      "Total",
+    ];
+
+    const table = document.createElement("table");
+
+    const headerRow = document.createElement("tr");
+    headers.forEach((header) => {
+      const th = document.createElement("th");
+      th.innerText = header;
+      headerRow.appendChild(th);
+    });
+    table.appendChild(headerRow);
+
+    cart.forEach((item) => {
+      const row = document.createElement("tr");
+
+      const titleCell = document.createElement("td");
+      const img = document.createElement("img");
+      titleCell.className = "product-cell";
+      img.src = item.image;
+      img.style.width = "100px";
+      titleCell.appendChild(img);
+      const titleText = document.createTextNode(item.title);
+      titleCell.appendChild(titleText);
+
+      const elements = [
+        titleCell,
+        document.createTextNode(""),
+        document.createTextNode("Not specified"),
+        document.createTextNode(`Size: ${item.size}, Color: ${item.color}`),
+        document.createTextNode(item.price),
+        document.createTextNode("1"),
+        document.createTextNode(item.price),
+      ];
+
+      elements.forEach((element) => {
+        const td = document.createElement("td");
+        td.appendChild(element);
+        row.appendChild(td);
+      });
+
+      table.appendChild(row);
+    });
+
+    targetElement.appendChild(table);
   } else {
-    targetElement = cartItemsElement;
-    itemsHTML = cart.map((item) => createDropdownItemHTML(item)).join("");
-    updateCartUI(itemCount, formattedTotal, itemsHTML);
+    targetElement = document.getElementById("shopping-cart");
+    cart.forEach((item) => {
+      itemsHTML += `
+                  <li>
+                  <img src="${item.image}" alt="${item.title}" width="60">
+                  <p class="cart-item-title">${item.title}</p><p class="cart-item-size">Size: ${item.size}</p><p class="cart-item-color">Color: ${item.color}</p>
+                  <span class="price">$${item.price}</span>
+                  </li>`;
+      total += item.price;
+      itemCount++;
+    });
+    const cartItems = document.getElementById("cart-items");
+    let formattedTotal = parseFloat(total.toFixed(2));
+    document.getElementById("cart-item-count").textContent = itemCount;
+    document.getElementById("cart-total").textContent = formattedTotal;
+    cartItems.innerHTML = itemsHTML;
+    document.getElementById("cart-count").textContent = itemCount;
   }
-}
-
-function createCartHeadersHTML() {
-  const headers = [
-    "Products",
-    "Shipping date",
-    "Size and colors",
-    "Price",
-    "Amount",
-    "Total",
-  ];
-  return headers.map((header) => `<h2>${header}</h2>`).join("");
-}
-
-function createCartItemHTML(item) {
-  const elements = [
-    item.title,
-    "Not specified",
-    `Size: ${item.size}, Color: ${item.color}`,
-    `$${item.price}`,
-    "1",
-    `$${item.price}`,
-  ];
-  return `<div class="product-item">${elements
-    .map((el) => `<div>${el}</div>`)
-    .join("")}</div>`;
-}
-
-function createDropdownItemHTML(item) {
-  return `
-    <li>
-      <img src="${item.image}" alt="${item.title}" width="60">
-      <p class="cart-item-title">${item.title}</p>
-      <p class="cart-item-size">Size: ${item.size}</p>
-      <p class="cart-item-color">Color: ${item.color}</p>
-      <span class="price">$${item.price}</span>
-    </li>`;
-}
-
-export function setupCartPage() {
-  generateProductCards(getFromLocalStorage("products"));
-  updateCartUI();
 }

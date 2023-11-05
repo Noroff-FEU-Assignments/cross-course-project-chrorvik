@@ -1,21 +1,22 @@
 import { fetchProducts } from "./apiClient.js";
 import { generateProductCards } from "./cartUI.js";
 import { initializeCart } from "./cart.js";
-import { setupEventListeners } from './eventListeners.js';
-import { getCart } from "./storage.js";
 import "./domUtils.js";
 
 async function init() {
-    const products = await fetchProducts();
-    const cart = getCart();
+  // Show the loading indicator
+  document.getElementById("loading-indicator").style.display = "flex";
 
-    if (document.querySelector('.card-container')) {
+  const products = await fetchProducts();
+  if (document.querySelector(".card-container")) {
     generateProductCards(products);
-    }
-    if (document.querySelector('.shopping-cart')) {
+  }
+  if (document.querySelector(".shopping-cart")) {
     initializeCart(products);
-    }
-    console.log(products)
-    setupEventListeners(cart, products);
+  }
+
+  // Hide the loading indicator
+  document.getElementById("loading-indicator").style.display = "none";
 }
-init()
+
+init();
